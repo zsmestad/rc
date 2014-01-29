@@ -1,0 +1,102 @@
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+ platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='unix'
+fi
+
+HOST=`hostname`
+#[ "$HOST" ] || HOST="%m"
+
+source ~/.zsh/git-prompt/zshrc.sh
+
+PROMPT='%B%~%b$(git_super_status) %# '
+
+###################
+# Shell Variables #
+
+PATH=/usr/local/bin:/usr/local/sbin:$PATH:/bin:/usr/bin:/sbin:/usr/sbin:~/bin
+
+# Localization
+LANG='en_US.UTF-8'
+LC_ALL='en_US.UTF-8'
+TZ='Europe/Amsterdam'
+
+HISTFILE=~/.zsh_history
+SAVEHIST=1000
+
+export PAGER="/usr/bin/less -Rs"
+export EDITOR="/usr/bin/vim"
+export VISUAL="$EDITOR"
+export LESSEDIT="$EDITOR"
+export LESSCHARSET='utf-8'
+
+############
+# Bindings #
+
+# Vi keybindings
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
+#########
+# Alias #
+alias vi='vim'
+
+if [[ $platform == 'unix' ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+alias  l='ls -lF'
+alias la='l -A'
+alias lh='l -h'
+
+alias mp='mkdir -p'
+
+alias   ..='cd ..'
+alias  ...='cd ../..'
+alias ....='cd ../../..'
+
+alias cl='clear'
+
+##############
+# Completion #
+autoload -Uz compinit && compinit
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' use-compctl false
+
+local knownhosts
+knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
+zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
+
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+          *.bz2) bunzip2 $1 ;;
+      *.tar.bz2) tar xjf $1 ;;
+         *.tbz2) tar xjf $1 ;;
+           *.gz) gunzip $1 ;;
+       *.tar.gz) tar xzf $1 ;;
+          *.tgz) tar xzf $1 ;;
+          *.tar) tar xf $1 ;;
+          *.rar) unrar e $1 ;;
+          *.zip) unzip $1 ;;
+            *.Z) uncompress $1 ;;
+           *.7z) 7z x $1 ;;
+              *) echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+       echo "'$1' is not a valid file"
+  fi
+}
+
+
