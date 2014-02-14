@@ -1,0 +1,6 @@
+fs=yes
+screenshot-format=jpg
+screenshot-template=~/.mpv/img/%F_%wH-%wM-%wS-%wT
+
+[vo.vdpau]
+hwdec=vdpau
