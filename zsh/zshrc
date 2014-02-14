@@ -7,12 +7,11 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 HOST=`hostname`
-#[ "$HOST" ] || HOST="%m"
 
 # Git-prompt
 source ~/.zsh/git-prompt/zshrc.sh
 
-PROMPT='%B%~%b$(git_super_status) %# '
+PROMPT='%m %B%~%b$(git_super_status) %# '
 
 ###################
 # Shell Variables #
