@@ -92,7 +92,6 @@ zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 fpath=($HOME/.zsh/func $fpath)
 typeset -U fpath
 
-
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -113,5 +112,3 @@ extract () {
        echo "'$1' is not a valid file"
   fi
 }
-
-
