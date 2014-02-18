@@ -16,7 +16,7 @@ PROMPT='%m %B%~%b$(git_super_status) %# '
 ###################
 # Shell Variables #
 
-PATH=/usr/local/bin:/usr/local/sbin:$PATH:/bin:/usr/bin:/sbin:/usr/sbin:~/bin
+PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
@@ -29,6 +29,9 @@ fi
 if [ -d /usr/local/lib/python2.7/site-packages ]; then
   export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 fi
+
+# Remove dupes in $PATH
+typeset -U PATH
 
 # Localization
 LANG='en_US.UTF-8'
