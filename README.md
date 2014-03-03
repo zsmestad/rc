@@ -1,10 +1,23 @@
 My RC Files
 ===========
 
+Zsh
+---
+
+Get git-prompt (https):
+
+    git clone https://github.com/olivierverdier/zsh-git-prompt.git zsh/git-prompt
+
 Vim
 ---
 
-[Puppet Vim module][1] from [Puppetlabs][2]
+Included [Puppet Vim module][1] from [Puppetlabs][2]
+
+Get vundle (https):
+
+   mkdir vim/bundle
+   git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
+
 
 Git
 ---
