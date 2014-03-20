@@ -22,14 +22,6 @@ if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
 fi
 
-if [ -d /usr/local/share/python ]; then
-  PATH=$PATH:/usr/local/share/python
-fi
-
-if [ -d /usr/local/lib/python2.7/site-packages ]; then
-  export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-fi
-
 # Remove dupes in $PATH
 typeset -U PATH
 
