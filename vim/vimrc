@@ -16,6 +16,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-sensible'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
+Bundle 'saltstack/salt-vim'
 
 " enable syntax highlighting
 filetype plugin indent on
