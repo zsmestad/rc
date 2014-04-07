@@ -67,6 +67,8 @@ alias ....='cd ../../..'
 
 alias cl='clear'
 
+alias add_cwd_to_path='export PATH=`pwd`:$PATH'
+
 ##############
 # Completion #
 autoload -Uz compinit && compinit
