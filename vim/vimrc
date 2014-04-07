@@ -18,6 +18,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
+Bundle 'saltstack/salt-vim'
 
 " enable syntax highlighting
 filetype plugin indent on

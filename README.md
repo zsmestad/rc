@@ -15,7 +15,6 @@ Included [Puppet Vim module][1] from [Puppetlabs][2]
 
 Get vundle (https):
 
-   mkdir vim/bundle
    git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
 
 

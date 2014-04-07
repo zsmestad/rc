@@ -1,0 +1,29 @@
+directory: ~/Music/musiclib
+
+import:
+  write: yes
+  move: yes
+  resume: ask
+  timid: yes
+
+art_filename: cover
+
+match:
+  preferred:
+    countries: ['US', 'GB|UK', 'NO']
+    media: ['Digital Media|File', 'CD']
+    original_year: yes
+
+per_disc_numbering: yes
+
+paths:
+  default: $genre/%if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album ($bitdepth-$samplerate)/$disc_and_track $title
+  singleton: Non-Album/$artist - $title
+  comp: Compilations/$album%aunique{}/$track $title
+
+plugins: inline discogs web info
+
+item_fields:
+  disc_and_track: u'%02i-%02i' % (disc, track) if
+                  disctotal > 1 else u'%02i' % (track)
+
