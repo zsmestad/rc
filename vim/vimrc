@@ -6,16 +6,18 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Bundle 'ajf/puppet-vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'benmills/vimux'
+Bundle 'gmarik/vundle'
+Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-sensible'
-Bundle 'godlygeek/tabular'
-Bundle 'benmills/vimux'
+Bundle 'tpope/vim-surround'
 
 " enable syntax highlighting
 filetype plugin indent on
