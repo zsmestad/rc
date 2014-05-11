@@ -22,6 +22,11 @@ if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
 fi
 
+if [ -d ~/go ]; then
+  export GOPATH=~/go
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 # Remove dupes in $PATH
 typeset -U PATH
 
