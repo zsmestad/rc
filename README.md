@@ -35,8 +35,6 @@ Here is a usable .gitconfig. See global ignore in repo.
   tool = vimdiff
 [push]
   default = matching
-[gitreview]
-  username = <gerrit username>
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 ```
