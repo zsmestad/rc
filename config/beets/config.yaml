@@ -21,7 +21,7 @@ paths:
   singleton: Non-Album/$artist - $title
   comp: Compilations/$album%aunique{}/$track $title
 
-plugins: inline discogs web info
+plugins: inline discogs info
 
 item_fields:
   disc_and_track: u'%02i-%02i' % (disc, track) if
