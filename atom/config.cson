@@ -1,14 +1,19 @@
 'editor':
-  'fontSize': 16
+  'fontSize': 11
+  'softWrapAtPreferredLineLength': true
+  'softWrap': true
+  'fontFamily': 'Source Code Pro'
 'core':
   'themes': [
     'atom-dark-ui'
     'atom-dark-syntax'
   ]
+  'projectHome': '~/git/projects'
+  'audioBeep': false
 'exception-reporting':
   'userId': '1421d2dd-2efb-cec2-a824-12119aa40a6d'
 'release-notes':
-  'viewedVersion': '0.93.0'
+  'viewedVersion': '0.94.0'
 'welcome':
   'showOnStartup': false
 'metrics':
