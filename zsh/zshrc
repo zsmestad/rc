@@ -84,13 +84,21 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' use-compctl false
 
-local knownhosts
-knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
-zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+if [ -f ~/.ssh/known_hosts ]; then
+  local knownhosts
+  knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
+  zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+fi
 
 fpath=($HOME/.zsh/func $fpath)
+
+if [ -d /usr/local/share/zsh-completions ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
 typeset -U fpath
 
+# I never use this, but it's just too cool to remove
 extract () {
   if [ -f $1 ] ; then
     case $1 in
