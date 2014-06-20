@@ -1,4 +1,4 @@
-" Init {{{1
+" Init
 set nocompatible
 
 " Vundle
@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
@@ -27,7 +28,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" Set {{{1
+" Set
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
@@ -55,7 +56,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 
-" Keyboard {{{1
+" Keyboard
 let mapleader = ','
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -80,14 +81,15 @@ if &diff
   map <leader>3 :diffget REMOTE<CR>
 endif
 
-" Plugins {{{1
+" Plugins
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
 let g:gitgutter_enabled = 0
 
-" Filetypes {{{1
+" Filetypes
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -97,7 +99,7 @@ if &term == "screen-256color"
   let &t_EI = "\<Esc>[0 q"
 endif
 
-" Extended Text Objects {{{1
+" Extended Text Objects
 let items = [ "<bar>", "\\", "/", ":", ".", "*", "_" ]
 for item in items
   exe "nnoremap yi".item." T".item."yt".item
@@ -111,4 +113,3 @@ for item in items
 endfor
 nnoremap viz v[zo]z$
 
-" }}} vim: fdm=marker
