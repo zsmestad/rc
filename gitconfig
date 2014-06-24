@@ -1,0 +1,15 @@
+[user]
+  name = <name here>
+  email = <email here>
+[core]
+  excludesfile = ~/.gitignore_global
+[push]
+  default = simple
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  unstage = reset HEAD --
+  stage   = diff --staged
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
