@@ -54,7 +54,7 @@ bindkey '^R' history-incremental-search-backward
 #########
 # Alias #
 alias vi='vim'
-alias ta='tmux attach && tmux'
+alias ta='tmux attach || tmux'
 
 if [[ $platform == 'unix' ]]; then
   alias ls='ls -G'
