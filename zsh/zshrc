@@ -6,12 +6,13 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='unix'
 fi
 
-HOST=`hostname`
-
 # Git-prompt
-source ~/.zsh/git-prompt/zshrc.sh
-
-PROMPT='%m %B%~%b$(git_super_status) %# '
+if [ -f ~/.zsh/git-prompt/zshrc.sh ]; then
+  source ~/.zsh/git-prompt/zshrc.sh
+  PROMPT='%m %B%~%b$(git_super_status) %# '
+else
+  PROMPT='%m %B%~%b %# '
+fi
 
 ###################
 # Shell Variables #
