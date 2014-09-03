@@ -28,6 +28,11 @@ if [ -d ~/go ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+local nix=~/'.nix-profile/etc/profile.d/nix.sh'
+if [ -f "$nix" ]; then
+  source "$nix"
+fi
+
 # Remove dupes in $PATH
 typeset -U PATH
 
