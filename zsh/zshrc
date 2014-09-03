@@ -74,6 +74,9 @@ alias ....='cd ../../..'
 
 alias cl='clear'
 
+alias pl='puppet-lint --log-format "%{filename}:%{linenumber} %{KIND} - %{message}" --no-autoloader_layout-check --no-class_parameter_defaults-check'
+alias pp='puppet parser validate'
+
 alias add_cwd_to_path='export PATH=`pwd`:$PATH'
 
 ##############
