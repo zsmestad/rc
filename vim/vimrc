@@ -16,7 +16,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 
 " Snipmate
