@@ -90,7 +90,7 @@ alias add_cwd_to_path='export PATH=`pwd`:$PATH'
 
 ##############
 # Completion #
-autoload -Uz compinit && compinit
+autoload -U compinit && compinit
 # Case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
 zstyle ':completion:*' completer _complete
