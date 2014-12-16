@@ -6,12 +6,13 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='unix'
 fi
 
-# Git-prompt
+# Prompt with git-prompt
+autoload -U colors && colors
 if [ -f ~/.zsh/git-prompt/zshrc.sh ]; then
   source ~/.zsh/git-prompt/zshrc.sh
-  PROMPT='%m %B%~%b$(git_super_status) %# '
+  PROMPT='%F{1}%m%f %B%~%b$(git_super_status) %# '
 else
-  PROMPT='%m %B%~%b %# '
+  PROMPT='%F{1}%m%f %B%~%b %# '
 fi
 
 ###################
