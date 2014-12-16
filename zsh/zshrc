@@ -42,9 +42,12 @@ LANG='en_US.UTF-8'
 LC_ALL='en_US.UTF-8'
 TZ='Europe/Amsterdam'
 
+# History
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
+setopt HIST_IGNORE_DUPS
 
+# Env Vars
 export PAGER="/usr/bin/less -Rs"
 export EDITOR="/usr/bin/vim"
 export VISUAL="$EDITOR"
