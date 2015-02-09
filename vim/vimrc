@@ -17,6 +17,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'wting/rust.vim'
 
 " Snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -92,10 +93,10 @@ let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": 'autoload module l
 
 " Filetypes
 " md is markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+au VimResized * :wincmd =
 
 " TMUX
 if &term == "screen-256color"
