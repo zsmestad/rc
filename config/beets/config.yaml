@@ -1,4 +1,4 @@
-directory: ~/Music/musiclib
+directory: ~/.config/beets/musiclib
 
 import:
   write: yes
@@ -14,16 +14,36 @@ match:
     media: ['Digital Media|File', 'CD']
     original_year: yes
 
-per_disc_numbering: yes
-
-paths:
-  default: $genre/%if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album ($bitdepth-$samplerate)/$disc_and_track $title
-  singleton: Non-Album/$artist - $title
-  comp: Compilations/$album%aunique{}/$track $title
-
-plugins: inline discogs info
-
 item_fields:
   disc_and_track: u'%02i-%02i' % (disc, track) if
                   disctotal > 1 else u'%02i' % (track)
+
+paths:
+  default: %if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album/$disc_and_track $title
+  singleton: Non-Album/$artist - $title
+  comp: Compilations/$album%aunique{}/$track $title
+
+per_disc_numbering: yes
+ignore: .AppleDouble ._* *~ .DS_Store
+
+plugins: chroma inline discogs info lastgenre fetchart lyrics
+
+fetchart:
+  auto: yes
+  cautious: true
+  cover_names: cover front back
+
+lyrics:
+  auto: yes
+  fallback: null
+  google_API_key: null
+  google_engine_ID: null
+
+lastgenre:
+  auto: yes
+  canonical: yes
+  count: 1
+  fallback: ''
+  force: yes
+  source: album
 
