@@ -15,12 +15,10 @@ startup_message off
 defscrollback 10000
 
 # Nice status on the bottom (http://bc.tech.coop/blog/071001.html)
-#hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w"
 hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w | %h"
 
 # Good over SSH
 autodetach on
 
 # Default shell
-#shell bash
 shell zsh
