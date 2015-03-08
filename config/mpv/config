@@ -1,4 +1,4 @@
 fs=yes
 screenshot-format=jpg
-screenshot-template=~/.mpv/img/%F_%wH-%wM-%wS-%wT
+screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
 
