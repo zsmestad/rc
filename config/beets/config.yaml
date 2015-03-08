@@ -26,7 +26,13 @@ paths:
 per_disc_numbering: yes
 ignore: .AppleDouble ._* *~ .DS_Store
 
-plugins: chroma inline discogs info lastgenre fetchart lyrics
+plugins: chroma inline discogs info lastgenre fetchart lyrics convert
+
+convert:
+  auto: no
+  dest: ~/.config/beets/musiclib-lossy
+  embed: yes
+  never_convert_lossy_files: yes
 
 fetchart:
   auto: yes
