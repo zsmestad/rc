@@ -1,7 +1,0 @@
-#!/bin/sh
-unattached=`tmux list-sessions | grep -v '(attached)' | wc -l`
-if [ $unattached -gt 0 ]; then
-  tmux -2 attach;
-else
-  tmux -2
-fi
