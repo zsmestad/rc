@@ -17,7 +17,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+
+" Rust
 Bundle 'wting/rust.vim'
+Bundle 'phildawes/racer'
 
 " Snipmate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -90,6 +93,12 @@ let g:syntastic_error_symbol = '‼️'
 let g:syntastic_warning_symbol = '❗️'
 
 let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": 'autoload module layout' }
+
+" Racer
+set hidden
+let g:racer_cmd = $HOME . "/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH = $HOME . "/git/rust/src"
+
 
 " Filetypes
 " md is markdown
