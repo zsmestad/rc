@@ -7,7 +7,6 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'benmills/vimux'
-Plug 'gmarik/vundle'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'rodjek/vim-puppet'
