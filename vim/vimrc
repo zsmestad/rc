@@ -105,6 +105,8 @@ let $RUST_SRC_PATH = $HOME . "/git/rust/src"
 " md is markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
+au FileType python set ts=8 et sw=4 sts=4
+
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
 
