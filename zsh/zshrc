@@ -20,6 +20,7 @@ fi
 
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
+# Haskell
 if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
 fi
