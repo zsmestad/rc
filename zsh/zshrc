@@ -24,6 +24,12 @@ if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
 fi
 
+# RVM
+if [ -d "$HOME/.rvm/bin" ]; then
+  PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+fi
+
 # Remove dupes in $PATH
 typeset -U PATH
 
