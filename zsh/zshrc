@@ -30,7 +30,6 @@ typeset -U PATH
 # Localization
 LANG='en_US.UTF-8'
 LC_ALL='en_US.UTF-8'
-TZ='Europe/Amsterdam'
 
 # History
 HISTFILE=~/.zsh_history
