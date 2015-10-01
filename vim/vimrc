@@ -1,17 +1,16 @@
-" Init
 set nocompatible
 
-" Vundle
 filetype off
 
 call plug#begin('~/.vim/plugged')
 Plug 'benmills/vimux'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
