@@ -5,7 +5,6 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
 Plug 'benmills/vimux'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -32,8 +31,6 @@ syntax enable
 " Theme
 set t_Co=256
 set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
 
 " Set
 set autoindent
@@ -89,7 +86,7 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = '‼️'
 let g:syntastic_warning_symbol = '❗️'
 
-let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": ['autoload module layout', '80chars'] }
+let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": ['autoload module layout', '80chars', 'class_inherits_from_params_class'] }
 
 " Filetypes
 " md is markdown
