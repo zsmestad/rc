@@ -28,7 +28,10 @@ paths:
 per_disc_numbering: yes
 ignore: .AppleDouble ._* *~ .DS_Store
 
-plugins: chroma inline discogs info lastgenre fetchart lyrics convert
+plugins: chroma inline discogs info lastgenre fetchart lyrics scrub #convert
+
+scrub:
+  auto: no
 
 convert:
   auto: no
