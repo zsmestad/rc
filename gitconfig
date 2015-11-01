@@ -3,6 +3,10 @@
   email = <email here>
 [core]
   excludesfile = ~/.gitignore_global
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
 [push]
   default = simple
 [alias]
