@@ -20,8 +20,7 @@ item_fields:
 
 paths:
   default: $format/%if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album/$disc_and_track $title
-  #%if($year,%if($month,%if($day,$year-$month-$day,$year-month),$year),$track)
-  genre:podcast: podcast/$album/$year-$month-$day $title
+  genre:Podcast: podcast/$album/$disc_and_track $title
   comp: $format/Various Artists [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album%aunique{}/$track $title
   singleton: $format/Nonsense/$artist - $title
 
