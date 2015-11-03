@@ -2,7 +2,8 @@ set nocompatible
 
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
+Plug 'benekastah/neomake'
 Plug 'benmills/vimux'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -11,15 +12,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-
-" Snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -67,7 +61,7 @@ nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " Handle git (three-way) diffs more easily
 if &diff
@@ -80,12 +74,9 @@ endif
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
 
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '‼️'
-let g:syntastic_warning_symbol = '❗️'
+let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check', '--no-80chars-check'], }
 
-let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": ['autoload module layout', '80chars', 'class_inherits_from_params_class'] }
+au! BufWritePost * Neomake
 
 " Filetypes
 " md is markdown
