@@ -4,7 +4,6 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'benekastah/neomake'
-Plug 'benmills/vimux'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
@@ -14,7 +13,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-
 call plug#end()
 
 " enable syntax highlighting
