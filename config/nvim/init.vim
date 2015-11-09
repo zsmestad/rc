@@ -4,17 +4,16 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'benekastah/neomake'
-Plug 'benmills/vimux'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-
 call plug#end()
 
 " enable syntax highlighting
@@ -79,9 +78,6 @@ let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check
 au! BufWritePost * Neomake
 
 " Filetypes
-" md is markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-
 au FileType python set ts=8 et sw=4 sts=4
 
 " automatically rebalance windows on vim resize
