@@ -75,6 +75,8 @@ let g:NERDSpaceDelims=1
 
 let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check', '--no-80chars-check'], }
 
+let g:vim_markdown_folding_disabled=1
+
 au! BufWritePost * Neomake
 
 " Filetypes
