@@ -25,12 +25,6 @@ if [ -d ~/.cabal/bin ]; then
   PATH=~/.cabal/bin:$PATH
 fi
 
-# RVM
-if [ -d "$HOME/.rvm/bin" ]; then
-  PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-fi
-
 # Remove dupes in $PATH
 typeset -U PATH
 
@@ -133,6 +127,12 @@ extract () {
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
+fi
+
+# RVM (it gets whiney if it's not in front or $PATH)
+if [ -d "$HOME/.rvm/bin" ]; then
+  PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
 
 compinit
