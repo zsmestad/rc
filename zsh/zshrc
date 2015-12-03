@@ -1,10 +1,11 @@
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-  platform='linux'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-  platform='unix'
-fi
+case `uname` in
+  Linux)
+    platform='linux';;
+  Darwin)
+    platform='unix';;
+  *)
+    platform='unknown';;
+esac
 
 # Prompt with git-prompt
 autoload -U colors && colors
@@ -21,9 +22,7 @@ fi
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Haskell
-if [ -d ~/.cabal/bin ]; then
-  PATH=~/.cabal/bin:$PATH
-fi
+[ -d ~/.cabal/bin ] && PATH=~/.cabal/bin:$PATH
 
 # Remove dupes in $PATH
 typeset -U PATH
@@ -57,11 +56,13 @@ bindkey '^R' history-incremental-search-backward
 alias vi='vim'
 alias ta='tmux attach || tmux'
 
-if [[ $platform == 'unix' ]]; then
-  alias ls='ls -G'
-else
-  alias ls='ls --color=auto'
-fi
+case $platform in
+  'unix')
+    alias ls='ls -G';;
+  *)
+    alias ls='ls --color=auto';;
+esac
+
 alias  l='ls -lF'
 alias la='l -A'
 alias lh='l -h'
@@ -95,11 +96,11 @@ if [ -f ~/.ssh/known_hosts ]; then
   zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 fi
 
-fpath=($HOME/.zsh/func $fpath)
+local hfunc=~/.zsh/func
+[ -d $hfunc ] && fpath=($hfunc $fpath)
 
-if [ -d /usr/local/share/zsh-completions ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+local ufunc=/usr/local/share/zsh-completions
+[ -d $ufunc ] && fpath=($ufunc $fpath)
 
 typeset -U fpath
 
@@ -125,9 +126,8 @@ extract () {
   fi
 }
 
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
+local zsh_local=~/.zshrc.local
+[ -f $zsh_local ] && source $zsh_local
 
 # RVM (it gets whiney if it's not in front of $PATH)
 if [ -d "$HOME/.rvm/bin" ]; then
@@ -136,4 +136,3 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 compinit
-
