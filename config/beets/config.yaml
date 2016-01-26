@@ -1,3 +1,6 @@
+# Setup:
+# brew install chromaprint
+# pip install discogs_client requests pylast pyacoustid
 directory: ~/.config/beets/musiclib
 
 import:
