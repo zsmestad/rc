@@ -10,6 +10,7 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'rodjek/vim-puppet'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
@@ -70,6 +71,7 @@ if &diff
 endif
 
 " Plugins
+let g:rustfmt_autosave = 0
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
 
