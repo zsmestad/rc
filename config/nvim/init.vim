@@ -23,6 +23,9 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
+" Turn off mouse
+set mouse=
+
 " Theme
 set t_Co=256
 set background=dark
@@ -31,7 +34,7 @@ set background=dark
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
-set directory-=.                                             " don't store swapfiles in the current directory
+set directory=.                                              " don't store swapfiles in the current directory
 set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
 set foldmethod=marker
@@ -93,6 +96,7 @@ let g:NERDTreeIndicatorMapCustom = {
 map <C-n> :NERDTreeToggle<CR>
 
 let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check', '--no-80chars-check'], }
+let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
 
 let g:vim_markdown_folding_disabled=1
 
