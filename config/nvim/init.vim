@@ -13,6 +13,7 @@ Plug 'pprovost/vim-ps1'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -75,7 +76,21 @@ endif
 
 " Plugins
 let g:ctrlp_match_window = 'order:ttb,max:20'
+
 let g:NERDSpaceDelims=1
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+map <C-n> :NERDTreeToggle<CR>
 
 let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check', '--no-80chars-check'], }
 
