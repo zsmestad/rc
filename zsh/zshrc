@@ -9,8 +9,8 @@ esac
 
 # Prompt with git-prompt
 autoload -U colors && colors
-if [ -f ~/.zsh/git-prompt/zshrc.sh ]; then
-  source ~/.zsh/git-prompt/zshrc.sh
+if [ -f ~/.zsh/zsh-git-prompt/zshrc.sh ]; then
+  source ~/.zsh/zsh-git-prompt/zshrc.sh
   PROMPT='%m %F{blue}%~%f$(git_super_status) %# '
 else
   PROMPT='%m %F{blue}%~ %# %f'
