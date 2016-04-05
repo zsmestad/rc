@@ -8,14 +8,9 @@ Get git-prompt (https):
 
     git clone https://github.com/olivierverdier/zsh-git-prompt.git zsh/git-prompt
 
-Vim
+Neovim
 ---
 
-Included [Puppet Vim module][1] from [Puppetlabs][2]
+Included [Plug.vim][1] in repo, which seems to work best. I'm mainly using Neovim over Vim now, so most updates will be to `init.vim`.
 
-Get vundle (https):
-
-   git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
-
-[1]: https://github.com/puppetlabs/puppet/tree/master/ext/vim/
-[2]: https://github.com/puppetlabs/
+[1]: https://github.com/junegunn/vim-plug
