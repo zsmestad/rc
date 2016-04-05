@@ -132,8 +132,9 @@ extract () {
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
-# RVM (it gets whiney if it's not in front of $PATH)
-if [ -d "$HOME/.rvm/bin" ]; then
+if [ -x /usr/local/bin/rbenv ]; then
+  eval "$(/usr/local/bin/rbenv init -)"
+elif [ -d "$HOME/.rvm/bin" ]; then
   PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 fi
