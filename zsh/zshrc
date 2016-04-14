@@ -46,6 +46,7 @@ export EDITOR="/usr/bin/vim"
 export VISUAL="$EDITOR"
 export LESSEDIT="$EDITOR"
 export LESSCHARSET='utf-8'
+export LESS='--ignore-case -R'
 
 ############
 # Bindings #
