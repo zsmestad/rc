@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.NoBorders (smartBorders0)
+import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
 import System.IO
@@ -25,3 +25,5 @@ myLogHook xmproc =
     { ppOutput = hPutStrLn xmproc
     , ppTitle = xmobarColor "green" "" . shorten 50
     }
+
+-- xscreensaver-command -lock
