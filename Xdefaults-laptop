@@ -1,0 +1,16 @@
+!! Based on: https://gist.github.com/ei-grad/3345657
+
+!! Appearance
+urxvt.scrollBar: false
+urxvt.background: black
+urxvt.foreground: gray
+
+!! Font
+!! pacman -S adobe-source-code-pro-fonts
+urxvt.font: xft:Source Code Pro:style=Regular:pixelsize=16
+urxvt.boldFont: xft:Source Code Pro:style=Bold:pixelsize=16
+urxvt.letterSpace: -1
+
+!! Open urls in browser with Control-Click
+urxvt.urlLauncher: /usr/bin/firefox
+urxvt.matcher.button: C1
