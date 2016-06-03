@@ -1,14 +1,30 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = TopW L 90
-       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %b %_d %l:%M" "date" 10
-                    , Run StdinReader
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% * %swap%    <fc=#ee9a00>%date%</fc>"
-       }
+Config {
+  font = "-*-Fixed-Bold-R-Normal-*-16-*-*-*-*-*-*-*"
+  , bgColor = "black"
+  , fgColor = "grey"
+  , position = Top
+  , commands = [
+      Run Cpu ["-t", "C: <total>%","-L","3","-H","50","--normal","green","--high","red"] 10
+    , Run Memory ["-t","M: <usedratio>%"] 10
+    , Run Swap   ["-t","S: <usedratio>%"] 10
+    , Run Date "%Y-%m-%d %H:%M %a" "date" 10
+    , Run StdinReader
+    -- battery monitor
+    , Run Battery [ "-t", "B: <acstatus>"
+                  , "--Low"      , "10"        -- units: %
+                  , "--High"     , "80"        -- units: %
+                  , "--low"      , "darkred" , "--normal"   , "darkorange"
+                  , "--high"     , "darkgreen"
+                  , "--" -- battery specific options
+                            -- discharging status
+                            , "-o"  , "<left>% (<timeleft>)"
+                            -- AC "on" status
+                            , "-O"  , "<fc=#dAA520>Charging</fc>"
+                            -- charged status
+                            , "-i"  , "<fc=#006000>Charged</fc>"
+                  ] 50
+  ]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %battery% | <fc=#ee9a00>%date%</fc>"
+}
