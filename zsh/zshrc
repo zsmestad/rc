@@ -133,6 +133,12 @@ extract () {
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
+local nvm=~/.nvm
+if [ -d "$nvm" ]; then
+  export NVM_DIR="$nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
+fi
+
 if [ -x /usr/local/bin/rbenv ]; then
   eval "$(/usr/local/bin/rbenv init -)"
 elif [ -d "$HOME/.rvm/bin" ]; then
