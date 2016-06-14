@@ -133,6 +133,8 @@ extract () {
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 local nvm=~/.nvm
 if [ -d "$nvm" ]; then
   export NVM_DIR="$nvm"
