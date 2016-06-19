@@ -26,7 +26,8 @@ main = do
 -- Windows key
 myModMask = mod4Mask
 
-myTerminal = "urxvt"
+--myTerminal = "urxvt"
+myTerminal = "gnome-terminal"
 myBorderWidth = 2
 
 myLayoutHook config =
@@ -43,5 +44,3 @@ myManageHooks =
                , isFullscreen --> doFullFloat
                , manageHook defaultConfig
     ]
-
--- xscreensaver-command -lock
