@@ -19,6 +19,3 @@ hardstatus alwayslastline "%{.bW}%-w%{.rW}%n %t%{-}%+w | %h"
 
 # Good over SSH
 autodetach on
-
-# Default shell
-shell zsh
