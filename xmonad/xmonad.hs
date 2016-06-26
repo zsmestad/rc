@@ -18,7 +18,8 @@ main = do
     , layoutHook  = myLayoutHook defaultConfig
     , logHook     = myLogHook xmproc
     } `additionalKeys` [
-     (( myModMask, xK_f), spawn "firefox")
+     (( myModMask .|. shiftMask, xK_f), spawn "firefox")
+    ,(( myModMask .|. shiftMask, xK_n), spawn "nautilus")
     ,(( myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
     ,(( myModMask, xK_b), sendMessage ToggleStruts)
     ]
