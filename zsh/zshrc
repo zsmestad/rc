@@ -144,11 +144,7 @@ if [ -d "$nvm" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
-if [ -x /usr/local/bin/rbenv ]; then
-  eval "$(/usr/local/bin/rbenv init -)"
-elif [ -d "$HOME/.rvm/bin" ]; then
-  PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-fi
+local rbenv_bin=/usr/local/bin/rbenv
+[ -x $rbenv_bin ] && eval "$($rbenv_bin init -)"
 
 compinit
