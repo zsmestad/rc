@@ -57,6 +57,8 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 
 " Keyboard
+
+" iTerm2: Set ^h to send escape code '[104;5u'
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k

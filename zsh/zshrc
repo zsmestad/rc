@@ -112,12 +112,12 @@ typeset -U fpath
 extract () {
   if [ -f $1 ] ; then
     case $1 in
-          *.bz2) bunzip2 $1 ;;
       *.tar.bz2) tar xjf $1 ;;
          *.tbz2) tar xjf $1 ;;
-           *.gz) gunzip $1 ;;
+          *.bz2) bunzip2 $1 ;;
        *.tar.gz) tar xzf $1 ;;
           *.tgz) tar xzf $1 ;;
+           *.gz) gunzip $1 ;;
           *.tar) tar xf $1 ;;
           *.rar) unrar e $1 ;;
           *.zip) unzip $1 ;;
@@ -130,10 +130,14 @@ extract () {
   fi
 }
 
+local chefsdk_bin=/opt/chefsdk/bin
+[ -x $chefsdk_bin ] && PATH="$PATH:$chefsdk_bin"
+
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+local pyenv_bin=/usr/local/bin/pyenv
+[ -x $pyenv_bin ] && eval "$($pyenv_bin init -)"
 
 local nvm=~/.nvm
 if [ -d "$nvm" ]; then
@@ -141,11 +145,7 @@ if [ -d "$nvm" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
-if [ -x /usr/local/bin/rbenv ]; then
-  eval "$(/usr/local/bin/rbenv init -)"
-elif [ -d "$HOME/.rvm/bin" ]; then
-  PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-fi
+local rbenv_bin=/usr/local/bin/rbenv
+[ -x $rbenv_bin ] && eval "$($rbenv_bin init -)"
 
 compinit
