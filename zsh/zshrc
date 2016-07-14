@@ -130,6 +130,9 @@ extract () {
   fi
 }
 
+local chefsdk_bin=/opt/chefsdk/bin
+[ -x $chefsdk_bin ] && PATH="$PATH:$chefsdk_bin"
+
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
