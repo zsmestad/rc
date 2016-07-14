@@ -136,7 +136,8 @@ local chefsdk_bin=/opt/chefsdk/bin
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+local pyenv_bin=/usr/local/bin/pyenv
+[ -x $pyenv_bin ] && eval "$($pyenv_bin init -)"
 
 local nvm=~/.nvm
 if [ -d "$nvm" ]; then
