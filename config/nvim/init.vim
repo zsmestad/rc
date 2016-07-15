@@ -10,7 +10,6 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'pprovost/vim-ps1'
-Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -99,7 +98,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 map <C-n> :NERDTreeToggle<CR>
 
-let g:neomake_puppet_puppetlint_maker = { 'args': ['--no-autoloader_layout-check', '--no-80chars-check'], }
 let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
 
 let g:vim_markdown_folding_disabled=1
