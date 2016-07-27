@@ -9,8 +9,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'pprovost/vim-ps1'
-Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
