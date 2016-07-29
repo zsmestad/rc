@@ -9,7 +9,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'pprovost/vim-ps1'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -34,7 +33,7 @@ set background=dark
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
-set directory=.                                              " don't store swapfiles in the current directory
+set directory=~/tmp                                          " don't store swapfiles in the current directory
 set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
 set foldmethod=marker
