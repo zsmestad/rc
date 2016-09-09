@@ -21,11 +21,8 @@ fi
 
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
-# Haskell
-[ -d ~/.cabal/bin ] && PATH=~/.cabal/bin:$PATH
-
-# Just another bin
-[ -d ~/local/bin ] && PATH=~/local/bin:$PATH
+# Stack
+[ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 
 # Remove dupes in $PATH
 typeset -U PATH
