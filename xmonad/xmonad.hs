@@ -19,8 +19,8 @@ main = do
     , logHook     = myLogHook xmproc
     } `additionalKeys` [
      (( myModMask .|. shiftMask, xK_f), spawn "firefox")
-    ,(( myModMask .|. shiftMask, xK_n), spawn "nautilus")
-    ,(( myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+    ,(( myModMask .|. shiftMask, xK_n), spawn "caja")
+    ,(( myModMask .|. shiftMask, xK_l), spawn "mate-screensaver-command --lock")
     ,(( myModMask, xK_b), sendMessage ToggleStruts)
     ]
 
@@ -28,11 +28,11 @@ main = do
 myModMask = mod4Mask
 
 --myTerminal = "urxvt"
-myTerminal = "gnome-terminal"
+myTerminal = "mate-terminal"
 myBorderWidth = 2
 
 myLayoutHook config =
-  avoidStruts . smartBorders $ layoutHook defaultConfig ||| simpleTabbed
+  avoidStruts . smartBorders $ layoutHook defaultConfig
 
 myLogHook xmproc =
   dynamicLogWithPP xmobarPP
