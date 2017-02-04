@@ -131,7 +131,11 @@ local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
 
-local rbenv_bin=/usr/local/bin/rbenv
-[ -x $rbenv_bin ] && eval "$($rbenv_bin init -)"
+# rbenv
+# git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+# cd ~/.rbenv && src/configure && make -C src
+# git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+local rbenv_path=~/.rbenv/bin
+[ -d $rbenv_path ] && export PATH="$rbenv_path:$PATH" && eval "$(rbenv init -)" 
 
 compinit
