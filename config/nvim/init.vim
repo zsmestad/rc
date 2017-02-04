@@ -105,13 +105,14 @@ let g:NERDTreeIndicatorMapCustom = {
 map <C-n> :NERDTreeToggle<CR>
 
 let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
+let g:neomake_python_pylint_maker = { 'args': ['--max-line-length=120'] }
 
 let g:vim_markdown_folding_disabled=1
 
 au! BufWritePost * Neomake
 
 " Filetypes
-au FileType python set ts=8 et sw=4 sts=4
+au FileType python set ts=4 et sw=4 sts=4
 
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
