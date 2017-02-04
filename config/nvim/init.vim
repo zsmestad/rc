@@ -13,7 +13,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
@@ -84,6 +84,8 @@ if &diff
 endif
 
 " Plugins
+let g:deoplete#enable_at_startup = 1
+
 let g:rustfmt_autosave = 0
 let g:ctrlp_match_window = 'order:ttb,max:20'
 
