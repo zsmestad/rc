@@ -18,11 +18,12 @@ match:
     original_year: yes
 
 item_fields:
+  # Format DD-TT Track if more than one disc, else TT Track
   disc_and_track: u'%02i-%02i' % (disc, track) if
                   disctotal > 1 else u'%02i' % (track)
 
 paths:
-  default: $format/%if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album/$disc_and_track $title
+  default: $format/%if{$albumartist_sort,$albumartist_sort,$albumartist} [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album%if{$albumdisambig, [$albumdisambig],}/$disc_and_track $title
   genre:Podcast: podcast/$album/$disc_and_track $title
   comp: $format/Various Artists [%if{$original_year,$original_year,$year}%if{$original_month,-$original_month,%if{$month,-$month}}] $album%aunique{}/$track $title
   singleton: $format/Nonsense/$artist - $title
@@ -30,7 +31,7 @@ paths:
 per_disc_numbering: yes
 ignore: .AppleDouble ._* *~ .DS_Store
 
-plugins: chroma inline discogs info lastgenre fetchart lyrics scrub #convert
+plugins: chroma inline info lastgenre fetchart lyrics scrub
 
 scrub:
   auto: no
@@ -54,7 +55,7 @@ lyrics:
 
 lastgenre:
   auto: yes
-  canonical: yes
+  canonical: no
   count: 1
   fallback: ''
   force: yes
