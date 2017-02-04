@@ -127,20 +127,9 @@ extract () {
   fi
 }
 
-local chefsdk_bin=/opt/chefsdk/bin
-[ -x $chefsdk_bin ] && PATH="$PATH:$chefsdk_bin"
-
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
-local pyenv_bin=/usr/local/bin/pyenv
-[ -x $pyenv_bin ] && eval "$($pyenv_bin init -)"
-
-local nvm=~/.nvm
-if [ -d "$nvm" ]; then
-  export NVM_DIR="$nvm"
-  . "$(brew --prefix nvm)/nvm.sh"
-fi
 
 local rbenv_bin=/usr/local/bin/rbenv
 [ -x $rbenv_bin ] && eval "$($rbenv_bin init -)"
