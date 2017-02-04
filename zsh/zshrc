@@ -130,6 +130,9 @@ extract () {
 local zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
+# Rustup - rustup.rs
+local rustup_bin=~/.cargo/bin
+[ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
 # rbenv
 # git clone https://github.com/rbenv/rbenv.git ~/.rbenv
