@@ -135,10 +135,7 @@ local rustup_bin=~/.cargo/bin
 [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
 # rbenv
-# git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-# cd ~/.rbenv && src/configure && make -C src
-# git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 local rbenv_path=~/.rbenv/bin
-[ -d $rbenv_path ] && export PATH="$rbenv_path:$PATH" && eval "$(rbenv init -)" 
+[ -d $rbenv_path ] && export PATH="$rbenv_path:$PATH" && eval "$(rbenv init -)"
 
 compinit
