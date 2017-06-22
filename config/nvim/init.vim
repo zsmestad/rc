@@ -6,21 +6,21 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'benekastah/neomake'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'kien/ctrlp.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-
-" Elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
 Plug 'vim-airline/vim-airline'
+
+" Markdown
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
+Plug 'plasticboy/vim-markdown'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " enable syntax highlighting
