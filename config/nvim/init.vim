@@ -20,6 +20,7 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'plasticboy/vim-markdown'
 
 " Rust
+Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 call plug#end()
 
@@ -113,6 +114,11 @@ au! BufWritePost * Neomake
 
 " Filetypes
 au FileType python set ts=4 et sw=4 sts=4
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
