@@ -16,11 +16,11 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 
 " Markdown
-Plug 'junegunn/vim-xmark', { 'do': 'make' }
-Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
-Plug 'racer-rust/vim-racer'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 call plug#end()
 
@@ -62,7 +62,8 @@ set wildmode=longest,list,full
 
 " Keyboard
 
-" iTerm2: Set ^h to send escape code '[104;5u'
+" Move easily between windows
+" iTerm2 issue: Set ^h to send escape code '[104;5u'
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -75,6 +76,7 @@ nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+
 map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " Handle git (three-way) diffs more easily
@@ -129,22 +131,7 @@ if &term == "screen-256color"
   let &t_EI = "\<Esc>[0 q"
 endif
 
-" Extended Text Objects
-let items = [ "<bar>", "\\", "/", ":", ".", "*", "_" ]
-for item in items
-  exe "nnoremap yi".item." T".item."yt".item
-  exe "nnoremap ya".item." F".item."yf".item
-  exe "nnoremap ci".item." T".item."ct".item
-  exe "nnoremap ca".item." F".item."cf".item
-  exe "nnoremap di".item." T".item."dt".item
-  exe "nnoremap da".item." F".item."df".item
-  exe "nnoremap vi".item." T".item."vt".item
-  exe "nnoremap va".item." F".item."vf".item
-endfor
-nnoremap viz v[zo]z$
-
-" Settings to play with Elixir
-"VIM Airline
+" VIM Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
@@ -164,5 +151,3 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-"run tests right from vim - super helpful
-map <leader><space> :!mix test<CR>
