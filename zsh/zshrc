@@ -61,7 +61,7 @@ case $platform in
   'unix')
     alias ls='ls -G';;
   *)
-    alias ls='ls --color=auto';;
+    alias ls='ls --color=auto --time-style=long-iso';;
 esac
 
 alias  l='ls -lF'
