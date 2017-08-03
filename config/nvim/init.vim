@@ -115,7 +115,11 @@ let g:vim_markdown_folding_disabled=1
 au! BufWritePost * Neomake
 
 " Filetypes
-au FileType python set ts=4 et sw=4 sts=4
+au BufRead,BufNewFile *.asm set filetype=nasm
+
+au FileType python set ts=4 sw=4 sts=4
+au FileType ld,asm set ts=4 sw=4 sts=4
+au FileType make   set ts=4 sw=4 noet lcs=tab:\ \ ,trail:-
 
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
