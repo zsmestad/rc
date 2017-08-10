@@ -2,6 +2,12 @@ set nocompatible
 
 filetype off
 
+" https://github.com/junegunn/vim-plug/wiki/faq#conditional-activation
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'benekastah/neomake'
 Plug 'godlygeek/tabular'
@@ -16,7 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 
 " Markdown
-Plug 'junegunn/vim-xmark', { 'do': 'make', 'for': 'markdown' }
+Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
