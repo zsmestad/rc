@@ -135,7 +135,7 @@ local rustup_bin=~/.cargo/bin
 [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
 # Racer
-local rust_src=~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+local rust_src=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 [ -d "$rust_src" ] && export RUST_SRC_PATH="$rust_src"
 
 # rbenv
