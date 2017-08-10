@@ -21,12 +21,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 
+" Language Server Protocol (LSP)
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp', { 'branch': 'dev' }
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " Markdown
 Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 call plug#end()
 
@@ -94,6 +99,23 @@ endif
 
 " Plugins
 let g:deoplete#enable_at_startup = 1
+
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+    \ 'whitelist': ['rust'],
+    \ })
+endif
+
+if executable('pyls')
+  " pip install python-language-server
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+endif
 
 let g:rustfmt_autosave = 0
 let g:ctrlp_match_window = 'order:ttb,max:20'
