@@ -8,6 +8,7 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+" --Plugins--
 call plug#begin('~/.config/nvim/plugged')
 Plug 'benekastah/neomake'
 Plug 'godlygeek/tabular'
@@ -47,7 +48,7 @@ set mouse=
 set t_Co=256
 set background=dark
 
-" Set
+" --Options--
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
@@ -72,7 +73,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.o,*.obj,.git,bowe
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 
-" Keyboard
+" --Keyboard--
 
 " Move easily between windows
 " iTerm2 issue: Set ^h to send escape code '[104;5u'
@@ -98,9 +99,28 @@ if &diff
   map <leader>3 :diffget REMOTE<CR>
 endif
 
-" Plugins
+" --Plugin Settings--
+
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" Ctrl-P
+let g:ctrlp_match_window = 'order:ttb,max:20'
+
+" VIM Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" LSP
 if executable('rls')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'rls',
@@ -118,11 +138,19 @@ if executable('pyls')
     \ })
 endif
 
-let g:rustfmt_autosave = 0
-let g:ctrlp_match_window = 'order:ttb,max:20'
+" Markdown
+let g:vim_markdown_folding_disabled=1
 
+" Neomake
+let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
+let g:neomake_python_pylint_maker = { 'args': ['--max-line-length=120'] }
+
+au! BufWritePost * Neomake
+
+" NERDCommenter
 let g:NERDSpaceDelims=1
 
+" NERDTree
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -136,24 +164,12 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 map <C-n> :NERDTreeToggle<CR>
 
-let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
-let g:neomake_python_pylint_maker = { 'args': ['--max-line-length=120'] }
-
-let g:vim_markdown_folding_disabled=1
-
-au! BufWritePost * Neomake
-
-" Filetypes
+" --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
 
 au FileType python set ts=4 sw=4 sts=4
 au FileType ld,asm set ts=4 sw=4 sts=4
 au FileType make   set ts=4 sw=4 noet lcs=tab:\ \ ,trail:-
-
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
@@ -163,24 +179,4 @@ if &term == "screen-256color"
   let &t_SI = "\<Esc>[3 q"
   let &t_EI = "\<Esc>[0 q"
 endif
-
-" VIM Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 
