@@ -31,7 +31,7 @@ paths:
 per_disc_numbering: yes
 ignore: .AppleDouble ._* *~ .DS_Store
 
-plugins: chroma inline info lastgenre fetchart lyrics scrub
+plugins: chroma inline info fetchart lyrics scrub
 
 scrub:
   auto: no
@@ -52,12 +52,3 @@ lyrics:
   fallback: null
   google_API_key: null
   google_engine_ID: null
-
-lastgenre:
-  auto: yes
-  canonical: no
-  count: 1
-  fallback: ''
-  force: yes
-  source: album
-
