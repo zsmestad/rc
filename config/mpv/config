@@ -4,3 +4,6 @@ screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
 
 # Template for Kodi thumbnails
 #screenshot-template=~/.config/mpv/img/Adventure Time/%F-thumb
+
+[pseudo-gui]
+force-window=no
