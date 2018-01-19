@@ -49,28 +49,32 @@ set t_Co=256
 set background=dark
 
 " --Options--
-set autoindent
-set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
-set backspace=2                                              " Fix broken backspace in some setups
-set directory=~/tmp                                          " don't store swapfiles in the current directory
 set encoding=utf-8
-set expandtab                                                " expand tabs to spaces
+
+" Indentation
+set autoindent
+set backspace=2
+set expandtab
+set scrolloff=3
+set shiftwidth=2
+set softtabstop=2
+set tabstop=4
+
+set autoread
+set directory=~/.local/tmp
 set foldmethod=marker
-set ignorecase                                               " case-insensitive search
-set incsearch                                                " search as you type
-set laststatus=2                                             " always show statusline
-set list                                                     " show trailing whitespace
+set ignorecase
+set incsearch
+set laststatus=2
+set list
 set listchars=tab:▸\ ,trail:-
 set pastetoggle=<F2>
-set ruler                                                    " show where you are
-set scrolloff=3                                              " show context above/below cursorline
-set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
+set ruler
 set showcmd
-set smartcase                                                " case-sensitive search if any caps
-set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
-set tabstop=4                                                " actual tabs occupy 4 characters
+set smartcase
+
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.o,*.obj,.git,bower_components/**,**/node_modules/**,_build/**,deps/**
-set wildmenu                                                 " show a navigable menu for tab completion
+set wildmenu
 set wildmode=longest,list,full
 
 " --Keyboard--
