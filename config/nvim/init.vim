@@ -23,10 +23,10 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 
 " Language Server Protocol (LSP)
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp', { 'branch': 'dev' }
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp', { 'branch': 'dev' }
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Markdown
 Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
@@ -121,22 +121,22 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " LSP
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'rls',
-    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-    \ 'whitelist': ['rust'],
-    \ })
-endif
+" if executable('rls')
+  " au User lsp_setup call lsp#register_server({
+    " \ 'name': 'rls',
+    " \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+    " \ 'whitelist': ['rust'],
+    " \ })
+" endif
 
-if executable('pyls')
-  " pip install python-language-server
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'pyls',
-    \ 'cmd': {server_info->['pyls']},
-    \ 'whitelist': ['python'],
-    \ })
-endif
+" if executable('pyls')
+  " " pip install python-language-server
+  " au User lsp_setup call lsp#register_server({
+    " \ 'name': 'pyls',
+    " \ 'cmd': {server_info->['pyls']},
+    " \ 'whitelist': ['python'],
+    " \ })
+" endif
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
