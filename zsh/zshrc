@@ -8,9 +8,15 @@ case `uname` in
 esac
 
 # Prompt with git-prompt
+# https://github.com/olivierverdier/zsh-git-prompt
 autoload -U colors && colors
-if [ -f ~/.zsh/zsh-git-prompt/zshrc.sh ]; then
-  source ~/.zsh/zsh-git-prompt/zshrc.sh
+local zsh_git_path=~/.zsh/zsh-git-prompt
+if [ -f "${zsh_git_path}/zshrc.sh" ]; then
+  # Compile with github link instructions
+  [ -x "${zsh_git_path}/src/.bin/gitstatus" ] && export GIT_PROMPT_EXECUTABLE="haskell"
+  # Create directory to enable caching
+  [ -d ~/.cache/zsh_git_prompt ] && export ZSH_THEME_GIT_PROMPT_CACHE=~/.cache/zsh_git_prompt
+  source "${zsh_git_path}/zshrc.sh"
   PROMPT='%m %F{blue}%~%f$(git_super_status) %# '
 else
   PROMPT='%m %F{blue}%~ %# %f'
