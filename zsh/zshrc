@@ -98,10 +98,10 @@ if [ -f ~/.ssh/known_hosts ]; then
 fi
 
 local hfunc=~/.zsh/func
-[ -d $hfunc ] && fpath=($hfunc $fpath)
+[ -d $hfunc ] && fpath+=$hfunc
 
-local ufunc=/usr/local/share/zsh-completions
-[ -d $ufunc ] && fpath=($ufunc $fpath)
+local ufunc=/usr/local/share/zsh/site-functions
+[ -d $ufunc ] && fpath+=$ufunc
 
 # I never use this, but it's just too cool to remove
 extract () {
@@ -138,17 +138,20 @@ function () {
   [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
   # Racer
-  local rust_src=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-  [ -d "$rust_src" ] && export RUST_SRC_PATH="$rust_src"
+  # https://github.com/racer-rust/racer
+  if [ -x rustc ]; then
+    local rust_src=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+    [ -d "$rust_src" ] && export RUST_SRC_PATH="$rust_src"
+  fi
 
   # rbenv
-  local rbenv_path=~/.rbenv/bin
-  [ -d $rbenv_path ] && export PATH="$rbenv_path:$PATH" && eval "$(rbenv init -)"
+  local rbenv_path=~/.rbenv
+  [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH" && eval "$(rbenv init -)"
 
   # pyenv
-  local PYENV_ROOT=~/.pyenv
-  [ -d $PYENV_ROOT ] && \
-    export PYENV_ROOT PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)"
+  local pyenv_path=~/.pyenv
+  [ -d $pyenv_path ] && \
+    export PYENV_ROOT="$pyenv_path" PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)"
 }
 
 # Remove dupes
