@@ -151,7 +151,7 @@ function () {
   # pyenv
   local pyenv_path=~/.pyenv
   [ -d $pyenv_path ] && \
-    export PYENV_ROOT="$pyenv_path" PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)"
+    export PYENV_ROOT="$pyenv_path" && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)"
 }
 
 # Remove dupes
