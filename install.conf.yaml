@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.agignore:
+    ~/.config/alacritty: config/alacritty
+    ~/.config/beets/config.yaml: config/beets/config.yaml
+    ~/.config/nvim: config/nvim
+    ~/.config/pip: config/pip
+    ~/.gitignore_global:
+    ~/.haskeline:
+    ~/.inputrc:
+    ~/.irbrc:
+    ~/.screenrc:
+    ~/.tmux.conf:
+    ~/.xmonad/xmonad.hs: xmonad/xmonad.hs
+    ~/.zsh:
+    ~/.zshrc: ~/.zsh/zshrc
