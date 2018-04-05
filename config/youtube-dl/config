@@ -1,0 +1,3 @@
+--download-archive ~/.config/youtube-dl/archive
+--add-metadata
+--no-playlist
