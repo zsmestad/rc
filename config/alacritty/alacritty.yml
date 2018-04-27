@@ -83,15 +83,15 @@ font:
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -291,6 +291,17 @@ key_bindings:
   - { key: N,        mods: Alt,              chars: "\x02\x63"           }
   - { key: LBracket, mods: Alt,              chars: "\x02\x70"           }
   - { key: RBracket, mods: Alt,              chars: "\x02\x6E"           }
+  # tmux: switch to pane #
+  - { key: Key0,     mods: Alt,              chars: "\x02\x30"           }
+  - { key: Key1,     mods: Alt,              chars: "\x02\x31"           }
+  - { key: Key2,     mods: Alt,              chars: "\x02\x32"           }
+  - { key: Key3,     mods: Alt,              chars: "\x02\x33"           }
+  - { key: Key4,     mods: Alt,              chars: "\x02\x34"           }
+  - { key: Key5,     mods: Alt,              chars: "\x02\x35"           }
+  - { key: Key6,     mods: Alt,              chars: "\x02\x36"           }
+  - { key: Key7,     mods: Alt,              chars: "\x02\x37"           }
+  - { key: Key8,     mods: Alt,              chars: "\x02\x38"           }
+  - { key: Key9,     mods: Alt,              chars: "\x02\x39"           }
   # Defaults
   - { key: C,        mods: Control|Shift,    action: Copy                }
   - { key: V,        mods: Control|Shift,    action: Paste               }
