@@ -137,6 +137,8 @@ function () {
   local rustup_bin=~/.cargo/bin
   [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
+  [ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
+
   # Racer
   # https://github.com/racer-rust/racer
   if [ -x rustc ]; then
