@@ -1,5 +1,6 @@
 # Setup:
-# brew install chromaprint
+# Mac: brew install chromaprint
+# Fedora: dnf install chromaprint-tools
 # pip install discogs_client requests pylast pyacoustid
 directory: ~/.config/beets/musiclib
 
