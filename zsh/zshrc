@@ -54,8 +54,8 @@ bindkey '^R' history-incremental-search-backward
 
 #########
 # Alias #
-alias vi='vim'
-alias ta='tmux attach || tmux'
+alias vi='nvim'
+alias vim='nvim'
 
 case $platform in
   'unix')
@@ -76,6 +76,7 @@ alias ....='cd ../../..'
 
 alias cl='clear'
 
+
 alias pl='puppet-lint --log-format "%{filename}:%{line} %{KIND} - %{message}" --no-autoloader_layout-check'
 alias pp='puppet parser validate'
 
@@ -93,7 +94,7 @@ zstyle ':completion:*' use-compctl false
 
 if [ -f ~/.ssh/known_hosts ]; then
   local knownhosts
-  knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
+  knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
   zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 fi
 
@@ -102,6 +103,16 @@ local hfunc=~/.zsh/func
 
 local ufunc=/usr/local/share/zsh/site-functions
 [ -d $ufunc ] && fpath+=$ufunc
+
+# Attach unattached tmux session or create a new one
+function tt () {
+  n=$(tmux list-sessions 2> /dev/null | grep -Ev '\(attached\)$' | wc -l | tr -d '[:blank:]')
+  if [ $n -gt 0 ]; then
+    tmux attach $@
+  else
+    tmux $@
+  fi
+}
 
 # I never use this, but it's just too cool to remove
 extract () {
@@ -127,6 +138,9 @@ extract () {
 
 # Anonymous function - only exported variables end up in the shell environment
 function () {
+  local nix=~/.nix-profile/etc/profile.d/nix.sh
+  [ -f "$nix" ] && . "$nix"
+
   local zsh_local=~/.zshrc.local
   [ -f $zsh_local ] && source $zsh_local
 
@@ -148,12 +162,13 @@ function () {
 
   # rbenv
   local rbenv_path=~/.rbenv
-  [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH" && eval "$(rbenv init -)"
+  [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH"
+  [ -x "$(which rbenv)" ] && eval "$(rbenv init -)"
 
   # pyenv
   local pyenv_path=~/.pyenv
-  [ -d $pyenv_path ] && \
-    export PYENV_ROOT="$pyenv_path" && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init -)"
+  [ -d $pyenv_path ] && export PYENV_ROOT="$pyenv_path" && export PATH="$PYENV_ROOT/bin:$PATH"
+  [ -x "$(which pyenv)" ] && eval "$(pyenv init -)"
 }
 
 # Remove dupes
@@ -161,3 +176,4 @@ typeset -U PATH
 typeset -U fpath
 
 compinit
+

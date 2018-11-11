@@ -18,6 +18,14 @@ Included [Plug.vim][1] in repo, which seems to work best. I'm mainly using Neovi
 rbenv
 ---
 
+Mac:
+
+```
+brew install rbenv ruby-build
+```
+
+Linux:
+
 ```
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
@@ -26,6 +34,15 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 pyenv
 ---
+
+Mac:
+
+```
+brew install pyenv
+CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $version
+```
+
+Linux:
 
 ```
 git clone https://github.com/pyenv/pyenv ~/.pyenv
