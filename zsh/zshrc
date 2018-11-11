@@ -163,12 +163,12 @@ function () {
   # rbenv
   local rbenv_path=~/.rbenv
   [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH"
-  [ -x "$(which rbenv)" ] && eval "$(rbenv init -)"
+  [ -x "$(which rbenv 2> /dev/null)" ] && eval "$(rbenv init -)"
 
   # pyenv
   local pyenv_path=~/.pyenv
   [ -d $pyenv_path ] && export PYENV_ROOT="$pyenv_path" && export PATH="$PYENV_ROOT/bin:$PATH"
-  [ -x "$(which pyenv)" ] && eval "$(pyenv init -)"
+  [ -x "$(which pyenv 2> /dev/null)" ] && eval "$(pyenv init -)"
 }
 
 # Remove dupes
