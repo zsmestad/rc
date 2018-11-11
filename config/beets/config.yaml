@@ -37,12 +37,6 @@ plugins: chroma inline info fetchart lyrics scrub
 scrub:
   auto: no
 
-convert:
-  auto: no
-  dest: ~/.config/beets/musiclib-lossy
-  embed: yes
-  never_convert_lossy_files: yes
-
 fetchart:
   auto: yes
   cautious: true
