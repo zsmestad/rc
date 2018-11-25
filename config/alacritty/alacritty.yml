@@ -390,10 +390,13 @@ key_bindings:
   # Easier copy and paste
   - { key: C,        mods: Alt,              action: Copy                }
   - { key: V,        mods: Alt,              action: Paste               }
-  # tmux: create pane, select pane left and right
+
+  # tmux: create pane, select pane left (26 = LBracket) and right (27 = RBracket)
+  # The LBracket and RBracket symbols don't seem to work with Shift
   - { key: N,        mods: Alt|Shift,        chars: "\x02\x63"           }
-  - { key: LBracket, mods: Alt,              chars: "\x02\x70"           }
-  - { key: RBracket, mods: Alt,              chars: "\x02\x6E"           }
+  - { key: 26,       mods: Alt|Shift,        chars: "\x02\x70"           }
+  - { key: 27,       mods: Alt|Shift,        chars: "\x02\x6E"           }
+
   # tmux: switch to pane #
   - { key: Key0,     mods: Alt,              chars: "\x02\x30"           }
   - { key: Key1,     mods: Alt,              chars: "\x02\x31"           }
@@ -405,6 +408,7 @@ key_bindings:
   - { key: Key7,     mods: Alt,              chars: "\x02\x37"           }
   - { key: Key8,     mods: Alt,              chars: "\x02\x38"           }
   - { key: Key9,     mods: Alt,              chars: "\x02\x39"           }
+
   # Defaults
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
