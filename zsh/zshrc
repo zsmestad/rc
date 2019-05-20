@@ -157,13 +157,6 @@ function () {
 
   [ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
 
-  # Racer
-  # https://github.com/racer-rust/racer
-  if [ -x rustc ]; then
-    local rust_src=$(rustc --print sysroot)/lib/rustlib/src/rust/src
-    [ -d "$rust_src" ] && export RUST_SRC_PATH="$rust_src"
-  fi
-
   # rbenv
   local rbenv_path=~/.rbenv
   [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH"
