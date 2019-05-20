@@ -138,6 +138,10 @@ extract () {
 
 # Anonymous function - only exported variables end up in the shell environment
 function () {
+  # Autojump
+  local aj=/usr/share/autojump/autojump.sh
+  [ -f "$aj" ] && . $aj
+
   local nix=~/.nix-profile/etc/profile.d/nix.sh
   [ -f "$nix" ] && . "$nix"
 
