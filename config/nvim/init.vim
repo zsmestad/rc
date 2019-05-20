@@ -142,6 +142,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 map <C-n> :NERDTreeToggle<CR>
 
+" Highlighted Yank
+let g:highlightedyank_highlight_duration = 250
+
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
 
