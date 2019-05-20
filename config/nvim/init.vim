@@ -106,9 +106,6 @@ endif
 
 " --Plugin Settings--
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
 " Ctrl-P
 let g:ctrlp_match_window = 'order:ttb,max:20'
 
