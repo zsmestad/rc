@@ -10,15 +10,15 @@ endfunction
 
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
+Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+
 Plug 'godlygeek/tabular'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -125,32 +125,8 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" LSP
-" if executable('rls')
-  " au User lsp_setup call lsp#register_server({
-    " \ 'name': 'rls',
-    " \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-    " \ 'whitelist': ['rust'],
-    " \ })
-" endif
-
-" if executable('pyls')
-  " " pip install python-language-server
-  " au User lsp_setup call lsp#register_server({
-    " \ 'name': 'pyls',
-    " \ 'cmd': {server_info->['pyls']},
-    " \ 'whitelist': ['python'],
-    " \ })
-" endif
-
 " Markdown
 let g:vim_markdown_folding_disabled=1
-
-" Neomake
-let g:neomake_ruby_rubocop_maker = { 'args': ['--display-cop-names', '--extra-details'] }
-let g:neomake_python_pylint_maker = { 'args': ['--max-line-length=120'] }
-
-au! BufWritePost * Neomake
 
 " NERDCommenter
 let g:NERDSpaceDelims=1
