@@ -2,7 +2,7 @@ case `uname` in
   Linux)
     platform='linux';;
   Darwin)
-    platform='unix';;
+    platform='macos';;
   *)
     platform='unknown';;
 esac
@@ -58,7 +58,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 case $platform in
-  'unix')
+  'macos')
     alias ls='ls -G';;
   *)
     alias ls='ls --color=auto --time-style=long-iso';;
@@ -139,7 +139,10 @@ extract () {
 # Anonymous function - only exported variables end up in the shell environment
 function () {
   # Autojump
-  local aj=/usr/share/autojump/autojump.sh
+  case $platform in
+    'macos') local aj=/usr/local/etc/profile.d/autojump.sh;;
+    *) local aj=/usr/share/autojump/autojump.sh;;
+  esac
   [ -f "$aj" ] && . $aj
 
   local nix=~/.nix-profile/etc/profile.d/nix.sh
