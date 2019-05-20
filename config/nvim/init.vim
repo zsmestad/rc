@@ -8,6 +8,8 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+let g:ale_completion_enabled = 1
+
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
 Plug 'w0rp/ale'
@@ -105,6 +107,14 @@ if &diff
 endif
 
 " --Plugin Settings--
+" Ale
+set omnifunc=ale#completion#OmniFunc
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_save=1
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\}
 
 " Ctrl-P
 let g:ctrlp_match_window = 'order:ttb,max:20'
