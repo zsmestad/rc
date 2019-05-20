@@ -13,7 +13,9 @@ let g:ale_completion_enabled = 1
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
 Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
+
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
@@ -23,13 +25,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-
-" Language Server Protocol (LSP)
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp', { 'branch': 'dev' }
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Markdown
 Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
