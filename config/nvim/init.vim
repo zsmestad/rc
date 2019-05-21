@@ -15,19 +15,26 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
-
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 Plug 'kien/ctrlp.vim'
-Plug 'rodjek/vim-puppet'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-rooter'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+
+
+" Puppet
+Plug 'rodjek/vim-puppet'
+
 " Markdown
-Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
+if has('mac')
+  Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
+endif
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
