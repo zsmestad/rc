@@ -145,6 +145,9 @@ function () {
   esac
   [ -f "$aj" ] && . "$aj"
 
+  local fzf=~/.fzf.zsh
+  [ -f "$fzf" ] && source "$fzf"
+
   local nix=~/.nix-profile/etc/profile.d/nix.sh
   [ -f "$nix" ] && . "$nix"
 
@@ -176,4 +179,3 @@ typeset -U PATH
 typeset -U fpath
 
 compinit
-

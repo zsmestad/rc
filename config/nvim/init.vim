@@ -22,6 +22,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
