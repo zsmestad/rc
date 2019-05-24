@@ -26,6 +26,8 @@ fi
 # Shell Variables #
 
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
+[ -d ~/.local/bin ] && export PATH=~/.local/bin:$PATH
+
 
 # Localization
 LANG='en_US.UTF-8'
@@ -138,37 +140,39 @@ extract () {
 
 # Anonymous function - only exported variables end up in the shell environment
 function () {
-  # Autojump
-  case $platform in
-    'macos') local aj=/usr/local/etc/profile.d/autojump.sh;;
-    *) local aj=/usr/share/autojump/autojump.sh;;
-  esac
-  [ -f "$aj" ] && . "$aj"
-
-  local fzf=~/.fzf.zsh
-  [ -f "$fzf" ] && source "$fzf"
-
-  local nix=~/.nix-profile/etc/profile.d/nix.sh
-  [ -f "$nix" ] && . "$nix"
-
+  ## Machine specific zshrc
   local zsh_local=~/.zshrc.local
   [ -f $zsh_local ] && source $zsh_local
 
-  # Haskell Stack
-  [ -d ~/.local/bin ] && export PATH=~/.local/bin:$PATH
+  ## Autojump
+  # https://github.com/wting/autojump
+  case $platform in
+    'macos') local aj=/usr/local/etc/profile.d/autojump.sh;;
+          *) local aj=/usr/share/autojump/autojump.sh;;
+  esac
+  [ -f "$aj" ] && . "$aj"
 
-  # Rustup - rustup.rs
+  ## fzf
+  # https://github.com/junegunn/fzf
+  local fzf=~/.fzf.zsh
+  [ -f "$fzf" ] && source "$fzf"
+
+  ## Rust
+  # https://rustup.rs/
   local rustup_bin=~/.cargo/bin
   [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
+  # https://crates.io/crates/sccache
   [ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
 
-  # rbenv
+  ## Ruby
+  # https://github.com/rbenv/rbenv
   local rbenv_path=~/.rbenv
   [ -d "$rbenv_path" ] && export PATH="$rbenv_path/bin:$PATH"
   [ -x "$(which rbenv 2> /dev/null)" ] && eval "$(rbenv init -)"
 
-  # pyenv
+  ## Python
+  # https://github.com/pyenv/pyenv
   local pyenv_path=~/.pyenv
   [ -d $pyenv_path ] && export PYENV_ROOT="$pyenv_path" && export PATH="$PYENV_ROOT/bin:$PATH"
   [ -x "$(which pyenv 2> /dev/null)" ] && eval "$(pyenv init -)"
