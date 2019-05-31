@@ -24,7 +24,8 @@ PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 ZSH_THEME_GIT_PROMPT_CACHE=1
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
-export FZF_BASE=~/.fzf.zsh
+export FZF_BASE=~/.fzf
+
 source $ZSH/oh-my-zsh.sh
 
 # Localization
