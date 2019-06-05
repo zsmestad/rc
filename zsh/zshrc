@@ -43,6 +43,7 @@ nv="$(which nvim)"
 if [ -x "$nv" ]; then
   alias vi="$nv"
   alias vim="$nv"
+  alias vimdiff="$nv -d"
   export EDITOR="$nv"
 else
   export EDITOR="$(which vim)"
