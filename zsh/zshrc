@@ -55,6 +55,10 @@ export LESSEDIT="$EDITOR"
 export LESSCHARSET='utf-8'
 export LESS='--ignore-case -R'
 
+################
+# Key Bindings #
+bindkey '^r' fzf-history-widget
+
 #########
 # Alias #
 case $platform in
