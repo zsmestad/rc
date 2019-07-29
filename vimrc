@@ -2,27 +2,6 @@ set nocompatible
 
 filetype off
 
-call plug#begin('~/.vim/plugged')
-Plug 'benmills/vimux'
-Plug 'godlygeek/tabular'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/vim-xmark', { 'do': 'make' }
-Plug 'kien/ctrlp.vim'
-Plug 'rodjek/vim-puppet'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-
-" Snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-
-call plug#end()
-
 " enable syntax highlighting
 filetype plugin indent on
 syntax enable
@@ -58,34 +37,13 @@ set wildmode=longest,list,full
 
 " Keyboard
 let mapleader = ','
+
+" Quickly move between splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" Handle git (three-way) diffs more easily
-if &diff
-  map <leader>1 :diffget LOCAL<CR>
-  map <leader>2 :diffget BASE<CR>
-  map <leader>3 :diffget REMOTE<CR>
-endif
-
-" Plugins
-let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:NERDSpaceDelims=1
-
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '‼️'
-let g:syntastic_warning_symbol = '❗️'
-
-let g:syntastic_puppet_puppetlint_quiet_messages = { "regex": ['autoload module layout', '80chars', 'class_inherits_from_params_class'] }
 
 " Filetypes
 " md is markdown
@@ -95,24 +53,3 @@ au FileType python set ts=8 et sw=4 sts=4
 
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
-
-" TMUX
-if &term == "screen-256color"
-  let &t_SI = "\<Esc>[3 q"
-  let &t_EI = "\<Esc>[0 q"
-endif
-
-" Extended Text Objects
-let items = [ "<bar>", "\\", "/", ":", ".", "*", "_" ]
-for item in items
-  exe "nnoremap yi".item." T".item."yt".item
-  exe "nnoremap ya".item." F".item."yf".item
-  exe "nnoremap ci".item." T".item."ct".item
-  exe "nnoremap ca".item." F".item."cf".item
-  exe "nnoremap di".item." T".item."dt".item
-  exe "nnoremap da".item." F".item."df".item
-  exe "nnoremap vi".item." T".item."vt".item
-  exe "nnoremap va".item." F".item."vf".item
-endfor
-nnoremap viz v[zo]z$
-
