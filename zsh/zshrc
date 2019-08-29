@@ -1,7 +1,18 @@
-export ZSH=~/.zsh/oh-my-zsh
-plugins=(autojump fzf pyenv rbenv vi-mode git)
+# Font:
+# https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
+#
+# old oh-my-zsh plugins: autojump fzf pyenv rbenv vi-mode git
 
-ZSH_THEME="clean"
+source ~/.antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen theme romkatv/powerlevel10k
+
+antigen bundle autojump
+antigen bundle fzf
+antigen bundle pyenv
+antigen bundle rbenv
+
+antigen apply
 
 case `uname` in
   Linux)
@@ -14,19 +25,15 @@ esac
 
 autoload -U colors && colors
 
+export TERM='xterm-256color'
+
 ###################
 # Shell Variables #
 
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
 [ -d ~/.local/bin ] && export PATH=~/.local/bin:$PATH
 
-# Load oh-my-zsh after paths but before aliases
-ZSH_THEME_GIT_PROMPT_CACHE=1
-DISABLE_AUTO_UPDATE=true
-DISABLE_UPDATE_PROMPT=true
 export FZF_BASE=~/.fzf
-
-source $ZSH/oh-my-zsh.sh
 
 # Localization
 LANG='en_US.UTF-8'
@@ -58,6 +65,7 @@ export LESS='--ignore-case -R'
 
 ################
 # Key Bindings #
+set -o vi
 bindkey '^r' fzf-history-widget
 
 #########
@@ -135,3 +143,8 @@ unset hfunc ufunc zsh_local rustup_bin nv
 # Remove dupes
 typeset -U PATH
 typeset -U fpath
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
