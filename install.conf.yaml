@@ -17,6 +17,7 @@
     ~/.haskeline:
     ~/.inputrc:
     ~/.irbrc:
+    ~/.p10k.zsh: ~/.zsh/p10k.zsh
     ~/.screenrc:
     ~/.tmux.conf:
     ~/.xmonad/xmonad.hs: xmonad/xmonad.hs
