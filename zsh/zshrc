@@ -30,8 +30,9 @@ export TERM='xterm-256color'
 ###################
 # Shell Variables #
 
-PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
-[ -d ~/.local/bin ] && export PATH=~/.local/bin:$PATH
+# Need pyenv and rbenv in front of these
+[ -d ~/.local/bin ] && export PATH=$PATH:~/.local/bin
+PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin
 
 export FZF_BASE=~/.fzf
 
