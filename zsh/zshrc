@@ -1,5 +1,5 @@
-# [Font](https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched)
 # [Antigen](https://github.com/zsh-users/antigen)
+# [Font](https://github.com/ryanoasis/nerd-fonts)
 
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
