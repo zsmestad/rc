@@ -1,7 +1,5 @@
-# Font:
-# https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
-#
-# old oh-my-zsh plugins: autojump fzf pyenv rbenv vi-mode git
+# [Font](https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched)
+# [Antigen](https://github.com/zsh-users/antigen)
 
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
