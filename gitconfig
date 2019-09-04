@@ -7,6 +7,10 @@
   tool = vimdiff
 [merge]
   tool = vimdiff
+[pager]
+  log  = ~/.cargo/bin/diffr | less -R
+  show = ~/.cargo/bin/diffr | less -R
+  diff = ~/.cargo/bin/diffr | less -R
 [push]
   default = simple
 [alias]
