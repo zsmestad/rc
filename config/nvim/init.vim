@@ -143,6 +143,7 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 "" VIM Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Markdown
