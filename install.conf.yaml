@@ -12,6 +12,7 @@
     ~/.config/mpv/config: config/mpv/config
     ~/.config/nvim: config/nvim
     ~/.config/pip: config/pip
+    ~/.config/pylintrc: config/pylintrc
     ~/.config/youtube-dl/config: config/youtube-dl/config
     ~/.gitignore_global:
     ~/.haskeline:
