@@ -13,12 +13,14 @@
     ~/.config/nvim: config/nvim
     ~/.config/pip: config/pip
     ~/.config/pylintrc: config/pylintrc
+    ~/.config/starship.toml: config/starship.toml
     ~/.config/youtube-dl/config: config/youtube-dl/config
     ~/.gitignore_global:
     ~/.haskeline:
     ~/.inputrc:
     ~/.irbrc:
-    ~/.p10k.zsh: ~/.zsh/p10k.zsh
+    # ~/.p10k.zsh: ~/.zsh/p10k.zsh
+    ~/.puppet-lint.rc:
     ~/.screenrc:
     ~/.tmux.conf:
     ~/.xmonad/xmonad.hs: xmonad/xmonad.hs
