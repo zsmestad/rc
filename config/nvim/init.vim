@@ -11,17 +11,30 @@ let g:ale_completion_enabled = 1
 
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
-Plug 'w0rp/ale'
+" Visual
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
+
+" File browser
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Comments and Quotes
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
+" Change path to git root
 Plug 'airblade/vim-rooter'
+
+" Fuzzy find
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Lint
+Plug 'w0rp/ale'
+
+" Completion
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
 
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
@@ -132,7 +145,8 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
   \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \ 'python': ['~/.pyenv/shims/pyls']
+  \ 'python': ['~/.pyenv/shims/pyls'],
+  \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio']
   \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
