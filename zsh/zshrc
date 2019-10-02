@@ -12,7 +12,6 @@ esac
 
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme romkatv/powerlevel10k
 
 [ $is_mac ] && \
   antigen bundle osx
@@ -33,6 +32,9 @@ antigen bundle cargo
 antigen bundle vagrant
 
 antigen apply
+
+# https://starship.rs
+[ -x ~/.cargo/bin/starship ] && eval "$(starship init zsh)"
 
 autoload -U colors && colors
 
