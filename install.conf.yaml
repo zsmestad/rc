@@ -19,7 +19,6 @@
     ~/.haskeline:
     ~/.inputrc:
     ~/.irbrc:
-    # ~/.p10k.zsh: ~/.zsh/p10k.zsh
     ~/.puppet-lint.rc:
     ~/.screenrc:
     ~/.tmux.conf:
