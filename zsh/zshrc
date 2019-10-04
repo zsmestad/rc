@@ -10,6 +10,10 @@ case `uname` in
     platform='unknown';;
 esac
 
+# https://starship.rs
+starship_bin=~/.cargo/bin/starship
+[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
+
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
@@ -32,9 +36,6 @@ antigen bundle cargo
 antigen bundle vagrant
 
 antigen apply
-
-# https://starship.rs
-[ -x ~/.cargo/bin/starship ] && eval "$(starship init zsh)"
 
 autoload -U colors && colors
 
