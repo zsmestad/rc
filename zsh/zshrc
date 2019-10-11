@@ -10,9 +10,13 @@ case `uname` in
     platform='unknown';;
 esac
 
+set -o vi
+
 # https://starship.rs
 starship_bin=~/.cargo/bin/starship
 [ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
+
+export FZF_BASE=~/.fzf
 
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -48,8 +52,6 @@ export TERM='xterm-256color'
 [ -d ~/.local/bin ] && export PATH=$PATH:~/.local/bin
 PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin
 
-export FZF_BASE=~/.fzf
-
 # Localization
 LANG='en_US.UTF-8'
 LC_ALL='en_US.UTF-8'
@@ -77,11 +79,6 @@ export VISUAL="$EDITOR"
 export LESSEDIT="$EDITOR"
 export LESSCHARSET='utf-8'
 export LESS='--ignore-case -R'
-
-################
-# Key Bindings #
-set -o vi
-bindkey '^r' fzf-history-widget
 
 #########
 # Alias #
@@ -157,5 +154,3 @@ unset hfunc ufunc zsh_local rustup_bin nv
 # Remove dupes
 typeset -U PATH
 typeset -U fpath
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
