@@ -10,14 +10,6 @@ case `uname` in
     platform='unknown';;
 esac
 
-set -o vi
-
-# https://starship.rs
-starship_bin=~/.cargo/bin/starship
-[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
-
-export FZF_BASE=~/.fzf
-
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
@@ -25,7 +17,6 @@ antigen use oh-my-zsh
   antigen bundle osx
 
 antigen bundle autojump
-antigen bundle fzf
 
 # Python
 antigen bundle pyenv
@@ -44,6 +35,8 @@ antigen apply
 autoload -U colors && colors
 
 export TERM='xterm-256color'
+
+set -o vi
 
 ###################
 # Shell Variables #
@@ -140,6 +133,14 @@ function tt () {
 ## Machine specific zshrc
 zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
+
+# https://starship.rs
+starship_bin=~/.cargo/bin/starship
+[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
+
+## FZF
+# https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## Rust
 # https://rustup.rs/
