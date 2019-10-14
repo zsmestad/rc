@@ -17,6 +17,7 @@ Plug 'machakann/vim-highlightedyank'
 
 " File browser
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Comments and Quotes
 Plug 'scrooloose/nerdcommenter'
@@ -43,7 +44,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Puppet
 Plug 'rodjek/vim-puppet'
