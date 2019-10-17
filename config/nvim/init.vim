@@ -34,13 +34,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 
 " Completion
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh'
-  \ }
+Plug 'Shougo/deoplete.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -139,23 +133,10 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \}
 
-"" Language Client
-" Required for operations modifying multiple buffers like rename.
-set hidden
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
-let g:LanguageClient_serverCommands = {
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \ 'python': ['~/.pyenv/shims/pyls'],
-  \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio']
-  \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-"" VIM Airline
+" VIM Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
