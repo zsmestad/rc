@@ -4,14 +4,35 @@ add_newline = true
 truncation_length = 10
 truncate_to_repo = false
 
+[aws]
+disabled=true
+
 [git_status]
-conflicted = "="
-ahead = "ﰵ"
-behind = "ﰬ"
-diverged = "ﱟ"
+style = ""
+prefix = "("
+suffix = ")"
+
+ahead = "↑"
+behind = "↓"
 untracked = "…"
-stashed = "📦"
-modified = "+"
-staged = "•"
-renamed = "→"
-deleted = "✖"
+stashed = "•"
+
+conflicted.value = "✖"
+conflicted_count.enabled = true
+conflicted.style = "red"
+conflicted_count.style = "red"
+
+modified.value = "✚"
+modified_count.enabled = true
+modified.style = "yellow"
+modified_count.style = "yellow"
+
+staged.value = "✹"
+staged_count.enabled = true
+staged.style = "green"
+staged_count.style = "green"
+
+#renamed = ""
+#deleted.value = ""
+#deleted_count.enabled = true
+#deleted_count.style = "red"
