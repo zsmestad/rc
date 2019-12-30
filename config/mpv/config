@@ -6,6 +6,7 @@ screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
 #screenshot-template=~/.config/mpv/img/Adventure Time/%F-thumb
 
 native-fs=no
+input-ipc-server=~/tmp/mpvsocket
 
 [pseudo-gui]
 force-window=no
