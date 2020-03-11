@@ -42,6 +42,9 @@ Plug 'tpope/vim-fugitive'
 " Puppet
 Plug 'rodjek/vim-puppet'
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 " Markdown
 if has('mac')
   Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
