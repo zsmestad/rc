@@ -16,7 +16,7 @@ antigen use oh-my-zsh
 [ $is_mac ] && \
   antigen bundle osx
 
-antigen bundle autojump
+#antigen bundle autojump
 
 # Python
 antigen bundle pyenv
@@ -134,11 +134,6 @@ function tt () {
 zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 
-# https://starship.rs
-starship_bin=~/.cargo/bin/starship
-[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
-
-## FZF
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -147,10 +142,18 @@ starship_bin=~/.cargo/bin/starship
 rustup_bin=~/.cargo/bin
 [ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
 
+# https://starship.rs
+starship_bin=~/.cargo/bin/starship
+[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
+
+# https://github.com/ajeetdsouza/zoxide/
+zoxide_bin=~/.cargo/bin/zoxide
+[ -x "$zoxide_bin" ] && eval "$(zoxide init zsh)"
+
 # https://crates.io/crates/sccache
 [ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
 
-unset hfunc ufunc zsh_local rustup_bin nv
+unset hfunc ufunc zsh_local rustup_bin starship_bin zoxide_bin nv
 
 # Remove dupes
 typeset -U PATH
