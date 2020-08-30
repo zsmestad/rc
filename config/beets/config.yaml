@@ -45,5 +45,6 @@ fetchart:
 lyrics:
   auto: yes
   fallback: null
+  sources: genius musixmatch lyricwiki
   google_API_key: null
   google_engine_ID: null
