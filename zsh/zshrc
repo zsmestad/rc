@@ -29,6 +29,7 @@ antigen bundle rake-fast
 # Completions
 antigen bundle cargo
 antigen bundle vagrant
+antigen bundle docker
 
 antigen apply
 
