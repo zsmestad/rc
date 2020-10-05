@@ -1,7 +1,7 @@
 # Setup:
 # Mac: brew install chromaprint
 # Fedora: dnf install chromaprint-tools
-# pip install discogs_client requests pylast pyacoustid
+# pip install beets[chroma,fetchart,lyrics]
 directory: ~/.config/beets/musiclib
 
 import:
@@ -45,5 +45,6 @@ fetchart:
 lyrics:
   auto: yes
   fallback: null
+  sources: genius musixmatch lyricwiki
   google_API_key: null
   google_engine_ID: null

@@ -13,6 +13,7 @@
     ~/.config/nvim: config/nvim
     ~/.config/pip: config/pip
     ~/.config/pylintrc: config/pylintrc
+    ~/.config/ripgrep: config/ripgrep
     ~/.config/starship.toml: config/starship.toml
     ~/.config/youtube-dl/config: config/youtube-dl/config
     ~/.gitignore_global:

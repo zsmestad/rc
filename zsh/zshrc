@@ -154,6 +154,8 @@ zoxide_bin=~/.cargo/bin/zoxide
 # https://crates.io/crates/sccache
 [ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
 
+[ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
+
 unset hfunc ufunc zsh_local rustup_bin starship_bin zoxide_bin nv
 
 # Remove dupes
