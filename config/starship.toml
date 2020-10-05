@@ -5,37 +5,19 @@ truncation_length = 10
 truncate_to_repo = false
 
 [git_status]
-style = ""
-prefix = "("
-suffix = ")"
+format = "\\($all_status$ahead_behind\\) "
 
-ahead = "↑"
-behind = "↓"
-untracked = "…"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
 stashed = "•"
 
-conflicted.value = "✖"
-conflicted_count.enabled = true
-conflicted.style = "red"
-conflicted_count.style = "red"
-
-modified.value = "✚"
-modified_count.enabled = true
-modified.style = "yellow"
-modified_count.style = "yellow"
-
-staged.value = "✹"
-staged_count.enabled = true
-staged.style = "green"
-staged_count.style = "green"
-
-#renamed = ""
-#deleted.value = ""
-#deleted_count.enabled = true
-#deleted_count.style = "red"
+conflicted = "[✖${count}](red)"
+modified = "[✚${count}](yellow)"
+staged = '[✹${count}](green)'
 
 [aws]
-disabled=true
+disabled = true
 symbol = " "
 
 [battery]
