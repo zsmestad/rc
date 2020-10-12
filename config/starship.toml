@@ -1,7 +1,7 @@
 add_newline = true
 
 [directory]
-truncation_length = 10
+truncation_length = 20
 truncate_to_repo = false
 
 [git_status]
@@ -15,6 +15,7 @@ stashed = "•"
 conflicted = "[✖${count}](red)"
 modified = "[✚${count}](yellow)"
 staged = '[✹${count}](green)'
+untracked = '[?${count}](red)'
 
 [aws]
 disabled = true
