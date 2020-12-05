@@ -131,6 +131,12 @@ function tt () {
   fi
 }
 
+# Man in Preview
+# https://news.ycombinator.com/item?id=25308708
+if [ $is_mac ]; then
+  pman() { man -t "$@" | open -f -a Preview; }
+fi
+
 ## Machine specific zshrc
 zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
