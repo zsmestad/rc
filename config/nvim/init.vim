@@ -39,9 +39,6 @@ Plug 'Shougo/deoplete.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Puppet
-Plug 'rodjek/vim-puppet'
-
 " Terraform
 Plug 'hashivim/vim-terraform'
 
