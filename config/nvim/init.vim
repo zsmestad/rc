@@ -11,6 +11,9 @@ let g:ale_completion_enabled = 1
 
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
+" Config
+Plug 'editorconfig/editorconfig-vim'
+
 " Visual
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
