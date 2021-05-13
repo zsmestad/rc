@@ -22,7 +22,11 @@ antigen bundle pyenv
 antigen bundle pip
 
 # Ruby
-antigen bundle rbenv
+if [ -x ~/.rvm/bin/rvm ]; then
+  antigen bundle rvm
+elif [ -x /usr/local/bin/rbenv ]; then
+  antigen bundle rbenv
+fi
 antigen bundle rake-fast
 
 # Completions
