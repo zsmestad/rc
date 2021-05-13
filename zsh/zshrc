@@ -13,10 +13,9 @@ esac
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
-[ $is_mac ] && \
-  antigen bundle osx
+[ $is_mac ] && antigen bundle osx
 
-#antigen bundle autojump
+antigen bundle direnv
 
 # Python
 antigen bundle pyenv
