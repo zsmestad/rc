@@ -1,7 +1,5 @@
 set nocompatible
 
-filetype off
-
 " https://github.com/junegunn/vim-plug/wiki/faq#conditional-activation
 function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
@@ -11,9 +9,6 @@ let g:ale_completion_enabled = 1
 
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
-" Config
-Plug 'editorconfig/editorconfig-vim'
-
 " Visual
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
@@ -57,8 +52,8 @@ Plug 'cespare/vim-toml'
 call plug#end()
 
 " enable syntax highlighting
-filetype plugin indent on
 syntax enable
+filetype plugin indent on
 
 " Turn off mouse
 set mouse=
