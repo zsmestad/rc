@@ -56,7 +56,7 @@ export PYTHONIOENCODING=utf-8
 
 # History
 HISTFILE=~/.zsh_history
-SAVEHIST=1000
+SAVEHIST=5000
 setopt HIST_IGNORE_DUPS
 
 # Prefer nvim
