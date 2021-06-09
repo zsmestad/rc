@@ -100,6 +100,11 @@ alias cl='clear'
 
 alias add_cwd_to_path='export PATH=`pwd`:$PATH'
 
+# Kubernetes
+alias kc=kubectl
+alias kx=kubectx
+alias kn=kubens
+
 ##############
 # Completion #
 autoload -U compinit && compinit
@@ -143,6 +148,12 @@ fi
 zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
 unset zsh_local
+
+################
+# App Specific #
+
+# Kubernetes
+[ "$(which kubectl)" ] && eval "$(kubectl completion zsh)"
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
