@@ -31,8 +31,8 @@ antigen bundle rake-fast
 
 # Completions
 antigen bundle cargo
-antigen bundle vagrant
 antigen bundle docker
+antigen bundle fd
 
 antigen apply
 
@@ -61,7 +61,7 @@ setopt HIST_IGNORE_DUPS
 
 # Prefer nvim
 nv="$(which nvim)"
-if [ -x "$nv" ]; then
+if [ $? -eq 0 ]; then
   alias vi="$nv"
   alias vim="$nv"
   alias vimdiff="$nv -d"
@@ -69,6 +69,7 @@ if [ -x "$nv" ]; then
 else
   export EDITOR="$(which vim)"
 fi
+unset nv
 
 # Env Vars
 export PAGER="/usr/bin/less -Rs"
@@ -123,6 +124,7 @@ hfunc=~/.zsh/func
 
 ufunc=/usr/local/share/zsh/site-functions
 [ -d $ufunc ] && fpath+=$ufunc
+unset hfunc ufunc
 
 # Attach unattached tmux session or create a new one
 function tt () {
@@ -143,29 +145,28 @@ fi
 ## Machine specific zshrc
 zsh_local=~/.zshrc.local
 [ -f $zsh_local ] && source $zsh_local
+unset zsh_local
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## Rust
 # https://rustup.rs/
-rustup_bin=~/.cargo/bin
-[ -d "$rustup_bin" ] && export PATH="${rustup_bin}:$PATH"
+cargo_bin=~/.cargo/bin
+[ -d "$cargo_bin" ] && export PATH="${cargo_bin}:$PATH"
+unset cargo_bin
 
 # https://starship.rs
-starship_bin=~/.cargo/bin/starship
-[ -x "$starship_bin" ] && eval "$($starship_bin init zsh)"
+[ "$(which starship)" ] && eval "$(starship init zsh)"
 
 # https://github.com/ajeetdsouza/zoxide/
 zoxide_bin=~/.cargo/bin/zoxide
-[ -x "$zoxide_bin" ] && eval "$(zoxide init zsh)"
+[ "$(which zoxide)" ] && eval "$(zoxide init zsh)"
 
 # https://crates.io/crates/sccache
-[ -x ~/.cargo/bin/sccache ] && export RUSTC_WRAPPER=sccache
+[ "$(which sccache)" ] && export RUSTC_WRAPPER=sccache
 
 [ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
-
-unset hfunc ufunc zsh_local rustup_bin starship_bin zoxide_bin nv
 
 # Remove dupes
 typeset -U PATH
