@@ -1,7 +1,5 @@
 set nocompatible
 
-filetype off
-
 " https://github.com/junegunn/vim-plug/wiki/faq#conditional-activation
 function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
@@ -39,9 +37,6 @@ Plug 'Shougo/deoplete.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Puppet
-Plug 'rodjek/vim-puppet'
-
 " Terraform
 Plug 'hashivim/vim-terraform'
 
@@ -57,8 +52,8 @@ Plug 'cespare/vim-toml'
 call plug#end()
 
 " enable syntax highlighting
-filetype plugin indent on
 syntax enable
+filetype plugin indent on
 
 " Turn off mouse
 set mouse=
