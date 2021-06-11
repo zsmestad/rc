@@ -11,3 +11,5 @@ alias lh='l -h'
 
 alias ..='cd ..'
 alias ...='cd ../..'
+
+alias tt='tmux attach || tmux'
