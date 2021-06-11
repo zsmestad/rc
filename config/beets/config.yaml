@@ -43,7 +43,7 @@ fetchart:
   cover_names: cover front back
 
 lyrics:
-  auto: yes
+  auto: no
   fallback: null
   sources: genius musixmatch lyricwiki
   google_API_key: null
