@@ -1,30 +1,22 @@
-My RC Files
-===========
+# My RC Files
 
 ```bash
 git clone --recursive https://github.com/zsmestad/rc
 ```
 
-Zsh
----
+## Neovim
 
-[Git-prompt][0] is now included as a submodule under a different directory to avoid conflicts.
+Included [Plug.vim][0] in repo, which seems to work best. I'm mainly using Neovim over Vim now, so most updates will be to `init.vim`.
 
-Neovim
----
+## rbenv
 
-Included [Plug.vim][1] in repo, which seems to work best. I'm mainly using Neovim over Vim now, so most updates will be to `init.vim`.
-
-rbenv
----
-
-Mac:
+### Mac
 
 ```
 brew install rbenv ruby-build
 ```
 
-Linux:
+### Linux
 
 ```
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -32,26 +24,26 @@ cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
-pyenv
----
+## pyenv
 
-Mac:
+### Mac
 
-```
-brew install pyenv
+```bash
+brew install pyenv openssl readline sqlite3 xz zlib
 CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $version
 ```
 
-Linux:
+### Linux
 
-```
+```bash
+# Ubuntu
+sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
 git clone https://github.com/pyenv/pyenv ~/.pyenv
-dnf/apt/brew install bzip2-devel sqlite-devel # Probably more
 pyenv install --list
-pyenv install 3.x && pyenv install 2.x
-pyenv global 3.x 2.x # Dunno if I need 2.x anymore
+pyenv install 3.x
+pyenv global 3.x
 pip3 install beets discogs_client requests pylast pyacoustid youtube-dl
 ```
 
-[0]: https://github.com/olivierverdier/zsh-git-prompt
-[1]: https://github.com/junegunn/vim-plug
+[0]: https://github.com/junegunn/vim-plug
