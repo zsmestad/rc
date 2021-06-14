@@ -153,7 +153,7 @@ unset zsh_local
 # App Specific #
 
 # Kubernetes
-[ "$(which kubectl)" ] && eval "$(kubectl completion zsh)"
+[ "$(which kubectl 2> /dev/null)" ] && eval "$(kubectl completion zsh)"
 
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -165,14 +165,14 @@ cargo_bin=~/.cargo/bin
 unset cargo_bin
 
 # https://starship.rs
-[ "$(which starship)" ] && eval "$(starship init zsh)"
+[ "$(which starship 2> /dev/null)" ] && eval "$(starship init zsh)"
 
 # https://github.com/ajeetdsouza/zoxide/
 zoxide_bin=~/.cargo/bin/zoxide
-[ "$(which zoxide)" ] && eval "$(zoxide init zsh)"
+[ "$(which zoxide 2> /dev/null)" ] && eval "$(zoxide init zsh)"
 
 # https://crates.io/crates/sccache
-[ "$(which sccache)" ] && export RUSTC_WRAPPER=sccache
+[ "$(which sccache 2> /dev/null)" ] && export RUSTC_WRAPPER=sccache
 
 [ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
 
