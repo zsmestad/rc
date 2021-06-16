@@ -1,3 +1,5 @@
+--smart-case
+
 # NFO Files for Emby
 --type-add
 nfo:*.{nfo}*
