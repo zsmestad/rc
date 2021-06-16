@@ -21,6 +21,7 @@
     ~/.inputrc:
     ~/.irbrc:
     ~/.puppet-lint.rc:
+    ~/.rubocop.yml:
     ~/.screenrc:
     ~/.tmux.conf:
     ~/.xmonad/xmonad.hs: xmonad/xmonad.hs
