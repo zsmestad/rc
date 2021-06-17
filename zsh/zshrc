@@ -38,8 +38,6 @@ antigen apply
 
 autoload -U colors && colors
 
-export TERM='xterm-256color'
-
 set -o vi
 
 ###################
