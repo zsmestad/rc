@@ -150,9 +150,6 @@ unset zsh_local
 ################
 # App Specific #
 
-# Kubernetes
-[ "$(which kubectl 2> /dev/null)" ] && eval "$(kubectl completion zsh)"
-
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
