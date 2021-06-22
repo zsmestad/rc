@@ -62,8 +62,10 @@ $character"""
 
 [directory]
 read_only = " "
-truncation_length = 20
-truncate_to_repo = true
+# Dirs, not characters
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
 
 [git_branch]
 format = "[$symbol$branch]($style) "
