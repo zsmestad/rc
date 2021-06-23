@@ -1,23 +1,37 @@
 [user]
-  name = <name here>
-  email = <email here>
+name = <name>
+email = <email>
+
 [core]
-  excludesfile = ~/.gitignore_global
+excludesfile = ~/.gitignore_global
+
 [diff]
-  tool = vimdiff
+tool = vimdiff
+
 [merge]
-  tool = vimdiff
+tool = vimdiff
+
 [pager]
-  log  = ~/.cargo/bin/diffr | less -R
-  show = ~/.cargo/bin/diffr | less -R
-  diff = ~/.cargo/bin/diffr | less -R
+diff = delta
+log = delta
+reflog = delta
+show = delta
+
+[delta]
+navigate = true
+
+[interactive]
+diffFilter = delta --color-only
+
 [push]
-  default = simple
+default = simple
+
 [alias]
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-  unstage = reset HEAD --
-  stage   = diff --staged
-  co = checkout
-  br = branch
-  ci = commit
-  st = status
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+unstage = reset HEAD --
+stage   = diff --staged
+co = checkout
+br = branch
+ci = commit
+st = status
+
