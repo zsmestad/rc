@@ -50,11 +50,11 @@ $openstack\
 $env_var\
 $crystal\
 $custom\
+$battery\
 $cmd_duration\
 $line_break\
 $lua\
 $jobs\
-$battery\
 $time\
 $status\
 $shell\
@@ -71,6 +71,37 @@ truncate_to_repo = false
 symbol = '  '
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 disabled = true
+
+[battery]
+full_symbol = ''
+charging_symbol = ''
+discharging_symbol = ''
+unknown_symbol = ''
+empty_symbol = ''
+format = '\[[$symbol $percentage]($style)\]'
+
+[[battery.display]]
+threshold = 20
+charging_symbol = ''
+discharging_symbol = ''
+style = "bold red"
+
+[[battery.display]]
+threshold = 40
+charging_symbol = ''
+discharging_symbol = ''
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 60
+charging_symbol = ''
+discharging_symbol = ''
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 80
+charging_symbol = ''
+discharging_symbol = ''
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
