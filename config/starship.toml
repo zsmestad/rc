@@ -148,6 +148,11 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 symbol = ' '
 format = '\[[$symbol$branch]($style)'
 
+[git_state]
+format = '[\($state( $progress_current/$progress_total)\)]($style)'
+cherry_pick = ' '
+merge = ' '
+
 [git_status]
 format = '( \($all_status$ahead_behind\)\])'
 
