@@ -146,23 +146,23 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 symbol = ' '
-format = '\[[$symbol$branch]($style)'
+format = '(\[[$symbol$branch]($style)\])'
 
 [git_state]
-format = '[\($state( $progress_current/$progress_total)\)]($style)'
+format = '(\[[$state( $progress_current/$progress_total)]($style)\])'
 cherry_pick = ' '
 merge = ' '
 
 [git_status]
-format = '( \($all_status$ahead_behind\)\])'
+format = '(\[$all_status$ahead_behind\])'
 
 ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
 stashed = '•'
 
-conflicted = '[✖${count}](red)'
-modified = '[✚${count}](yellow)'
+conflicted = '[ﰸ ${count}](red)'
+modified = '[${count}](yellow)'
 staged = '[✹${count}](green)'
 untracked = '[?${count}](red)'
 
