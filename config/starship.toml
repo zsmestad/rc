@@ -177,6 +177,9 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = ' '
 format = '\[[$symbol$branch]($style)\]'
 
+[hostname]
+format = '\[[$hostname]($style)\]'
+
 [java]
 symbol = ' '
 format = '\[[$symbol($version)]($style)\]'
