@@ -29,7 +29,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Lint
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Completion
 Plug 'Shougo/deoplete.nvim'
@@ -55,41 +55,7 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-" Turn off mouse
-set mouse=
-
-" Theme
-set t_Co=256
-set background=dark
-
-" --Options--
-set encoding=utf-8
-
-" Indentation
-set autoindent
-set backspace=2
-set expandtab
-set scrolloff=3
-set shiftwidth=2
-set softtabstop=2
-set tabstop=4
-
-set autoread
-set directory=~/.local/tmp
-set foldmethod=marker
-set ignorecase
-set incsearch
-set laststatus=2
-set list
-set listchars=tab:▸\ ,trail:-
-set pastetoggle=<F2>
-set ruler
-set showcmd
-set smartcase
-
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.o,*.obj,.git,bower_components/**,**/node_modules/**,_build/**,deps/**
-set wildmenu
-set wildmode=longest,list,full
+lua require('settings')
 
 " --Keyboard--
 
