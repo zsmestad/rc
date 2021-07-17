@@ -101,7 +101,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-map <C-n> :NERDTreeToggle<CR>
 
 " Highlighted Yank
 let g:highlightedyank_highlight_duration = 250
