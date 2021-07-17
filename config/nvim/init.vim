@@ -64,35 +64,15 @@ filetype plugin indent on
 
 lua require('settings')
 lua require('maps')
-lua require('plugins')
 
 " --Plugin Settings--
-" Ale
+lua require('plugins')
+
+" Ale (no idea about the lua for these)
 set omnifunc=ale#completion#OmniFunc
-let g:airline#extensions#ale#enabled = 1
-
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
-let g:ale_virtualtext_cursor = 1
-
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \}
-
-" NERDTree
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
 
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
