@@ -56,31 +56,8 @@ syntax enable
 filetype plugin indent on
 
 lua require('settings')
+lua require('maps')
 
-" --Keyboard--
-
-" Move easily between windows
-" iTerm2 issue: Set ^h to send escape code '[104;5u'
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-let mapleader = ','
-
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-
-nmap <leader>F :FZF<CR>
-
-map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
-
-" Handle git (three-way) diffs more easily
-if &diff
-  map <leader>1 :diffget LOCAL<CR>
-  map <leader>2 :diffget BASE<CR>
-  map <leader>3 :diffget REMOTE<CR>
-endif
 
 " --Plugin Settings--
 " Ale
