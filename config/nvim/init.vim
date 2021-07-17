@@ -1,4 +1,6 @@
 set nocompatible
+" Otherwise grey...
+hi SignColumn ctermbg=none
 
 " https://github.com/junegunn/vim-plug/wiki/faq#conditional-activation
 function! Cond(cond, ...)
@@ -9,6 +11,10 @@ let g:ale_completion_enabled = 1
 
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
+
+" Gitsigns dependency
+Plug 'nvim-lua/plenary.nvim'
+
 " Visual
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
@@ -36,6 +42,7 @@ Plug 'Shougo/deoplete.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Terraform
 Plug 'hashivim/vim-terraform'
@@ -57,7 +64,7 @@ filetype plugin indent on
 
 lua require('settings')
 lua require('maps')
-
+lua require('plugins')
 
 " --Plugin Settings--
 " Ale
