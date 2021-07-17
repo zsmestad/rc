@@ -81,21 +81,6 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \}
 
-" Deoplete
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:deoplete#enable_at_startup = 1
-
-" VIM Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" Markdown
-let g:vim_markdown_folding_disabled=1
-
-" NERDCommenter
-let g:NERDSpaceDelims=1
-
 " NERDTree
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -108,9 +93,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-
-" Highlighted Yank
-let g:highlightedyank_highlight_duration = 250
 
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
