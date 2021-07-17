@@ -34,6 +34,11 @@ set.shiftwidth = 2
 set.softtabstop = 2
 set.tabstop = 4
 
+set.lazyredraw = true
+
+set.eol = true
+set.fixeol = true
+
 set.autoread = true
 
 set.foldmethod = 'marker'
