@@ -10,7 +10,7 @@ set.listchars = 'tab:▸ ,trail:-'
 set.pastetoggle = '<F2>'
 set.ruler = true
 set.showcmd = true
-set.directory = '~/.local/tmp'
+set.directory = vim.fn.getenv('HOME') .. '/.local/tmp'
 
 -- Tab complete command mode files with nice menu
 set.wildmenu = true
