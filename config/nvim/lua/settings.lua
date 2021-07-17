@@ -1,10 +1,6 @@
 local set = vim.opt
 local g   = vim.g
 
-vim.api.nvim_set_keymap('', ',', '<Nop>', { noremap = true, silent = true })
-g.mapleader = ','
-g.maplocalleader = ','
-
 set.mouse = ''
 set.encoding = 'utf-8'
 set.fileencoding = 'utf-8'

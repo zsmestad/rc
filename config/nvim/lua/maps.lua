@@ -1,4 +1,8 @@
 local map = vim.api.nvim_set_keymap
+local g   = vim.g
+map('', ',', '<Nop>', { noremap = true, silent = true })
+g.mapleader = ','
+g.maplocalleader = ','
 
 map('n', ',', '', {})
 
