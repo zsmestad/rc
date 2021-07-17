@@ -23,6 +23,7 @@ $helm\
 $java\
 $julia\
 $kotlin\
+$lua\
 $nim\
 $nodejs\
 $ocaml\
@@ -47,13 +48,12 @@ $memory_usage\
 $aws\
 $gcloud\
 $openstack\
-$env_var\
 $crystal\
+$env_var\
 $custom\
 $battery\
 $cmd_duration\
 $line_break\
-$lua\
 $jobs\
 $time\
 $status\
@@ -196,6 +196,11 @@ symbol = ' '
 format = '\[[$symbol$context(/$namespace)]($style)\]'
 disabled = false
 style = 'bold blue'
+
+[lua]
+format = '\[[$symbol($version)]($style)\]'
+symbol = '🌙 '
+disabled = true
 
 [memory_usage]
 symbol = ' '
