@@ -56,6 +56,10 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " Rust
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+
+" Misc FT
+Plug 'LnL7/vim-nix'
+
 call plug#end()
 
 " enable syntax highlighting
