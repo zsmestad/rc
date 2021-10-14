@@ -171,7 +171,7 @@ style = 'bold blue'
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
-symbol = '🌙 '
+symbol = ''
 disabled = true
 
 [memory_usage]
