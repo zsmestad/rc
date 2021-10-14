@@ -139,14 +139,14 @@ staged = '[✹${count}](green)'
 untracked = '[?${count}](red)'
 
 [golang]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [helm]
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
