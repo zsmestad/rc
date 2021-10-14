@@ -73,35 +73,7 @@ format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 disabled = true
 
 [battery]
-full_symbol = ''
-charging_symbol = ''
-discharging_symbol = ''
-unknown_symbol = ''
-empty_symbol = ''
-format = '\[[$symbol $percentage]($style)\]'
-
-[[battery.display]]
-threshold = 20
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold red"
-
-[[battery.display]]
-threshold = 40
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 60
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 80
-charging_symbol = ''
-discharging_symbol = ''
+disabled = true
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
