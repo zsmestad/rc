@@ -183,8 +183,10 @@ symbol = ' '
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
-symbol = ' '
-format = '\[[$symbol$state( \($name\))]($style)\]'
+symbol = ''
+format = '\[[$symbol$state(\($name\))]($style)\]'
+impure_msg = "ι"
+pure_msg = "ρ"
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'
