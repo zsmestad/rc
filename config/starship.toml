@@ -68,7 +68,7 @@ truncation_symbol = '…/'
 truncate_to_repo = false
 
 [aws]
-symbol = '  '
+symbol = ''
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 disabled = true
 
@@ -82,32 +82,32 @@ format = '\[[$symbol($version)]($style)\]'
 format = "[祥$duration]($style)"
 
 [conda]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$environment]($style)\]'
 
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 
 [elixir]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [erlang]
@@ -117,13 +117,13 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-symbol = ' '
+symbol = ''
 format = '(\[[$symbol$branch]($style)\])'
 
 [git_state]
 format = '(\[[$state( $progress_current/$progress_total)]($style)\])'
-cherry_pick = ' '
-merge = ' '
+cherry_pick = ''
+merge = ''
 
 [git_status]
 format = '(\[$all_status$ahead_behind\])'
@@ -153,18 +153,18 @@ format = '\[[$symbol$branch]($style)\]'
 format = '\[[$hostname]($style)\]'
 
 [java]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [julia]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [kotlin]
 format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$context(/$namespace)]($style)\]'
 disabled = false
 style = 'bold blue'
@@ -175,11 +175,11 @@ symbol = '🌙 '
 disabled = true
 
 [memory_usage]
-symbol = ' '
+symbol = ''
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [nim]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
@@ -198,38 +198,38 @@ format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [package]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$version]($style)\]'
 
 [perl]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [php]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = ' '
+symbol = ''
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [ruby]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [rust]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [scala]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [shlvl]
-symbol = " "
+symbol = ""
 
 [swift]
-symbol = 'ﯣ '
+symbol = 'ﯣ'
 format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
