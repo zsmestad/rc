@@ -1,6 +1,4 @@
-# [Antigen](https://github.com/zsh-users/antigen)
 # [Font](https://github.com/ryanoasis/nerd-fonts)
-
 case `uname` in
   Linux)
     is_linux=true;;
@@ -10,32 +8,6 @@ case `uname` in
     platform='unknown';;
 esac
 
-source ~/.antigen/antigen.zsh
-antigen use oh-my-zsh
-
-[ $is_mac ] && antigen bundle osx
-
-antigen bundle direnv
-
-# Python
-antigen bundle pyenv
-antigen bundle pip
-
-# Ruby
-if [ -x ~/.rvm/bin/rvm ]; then
-  antigen bundle rvm
-elif [ -x /usr/local/bin/rbenv ]; then
-  antigen bundle rbenv
-fi
-antigen bundle rake-fast
-
-# Completions
-antigen bundle cargo
-antigen bundle docker
-antigen bundle fd
-
-antigen apply
-
 autoload -U colors && colors
 
 set -o vi
@@ -43,9 +15,23 @@ set -o vi
 ###################
 # Shell Variables #
 
-# Need pyenv and rbenv in front of these
-[ -d ~/.local/bin ] && export PATH=$PATH:~/.local/bin
-PATH=$PATH:~/bin:/usr/local/bin:/usr/local/sbin
+# Prepend to $PATH
+path_pre=(
+  "${HOME}/.nix-profile/bin"
+  "${HOME}/.rvm/bin"
+  "${HOME}/.cargo/bin"
+  "${HOME}/bin"
+  "${HOME}/.local/bin"
+  '/usr/local/bin'
+  '/usr/local/sbin'
+  "${HOME}/.krew/bin"
+  "${HOME}/.fzf/bin"
+)
+
+pre_tmp=()
+for p in "${path_pre[@]}"; do [ -d "$p" ] && pre_tmp+="$p"; done
+PATH="${(j.:.)pre_tmp}:$PATH"
+unset path_pre pre_tmp
 
 # Localization
 LANG='en_US.UTF-8'
@@ -54,7 +40,7 @@ export PYTHONIOENCODING=utf-8
 
 # History
 HISTFILE=~/.zsh_history
-SAVEHIST=5000
+SAVEHIST=10000
 setopt HIST_IGNORE_DUPS
 
 # Prefer nvim
@@ -142,22 +128,11 @@ if [ $is_mac ]; then
   pman() { man -t "$@" | open -f -a Preview; }
 fi
 
-## Machine specific zshrc
-zsh_local=~/.zshrc.local
-[ -f $zsh_local ] && source $zsh_local
-unset zsh_local
-
 ################
 # App Specific #
 
 # https://github.com/junegunn/fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-## Rust
-# https://rustup.rs/
-cargo_bin=~/.cargo/bin
-[ -d "$cargo_bin" ] && export PATH="${cargo_bin}:$PATH"
-unset cargo_bin
+test -f "${HOME}/.fzf.zsh" && source "$_"
 
 # https://starship.rs
 [ "$(which starship 2> /dev/null)" ] && eval "$(starship init zsh)"
@@ -169,8 +144,19 @@ zoxide_bin=~/.cargo/bin/zoxide
 # https://crates.io/crates/sccache
 [ "$(which sccache 2> /dev/null)" ] && export RUSTC_WRAPPER=sccache
 
+# https://github.com/rbenv/rbenv
+[ "$(which rbenv 2> /dev/null)" ] && eval "$(rbenv init - zsh)"
+
+# https://github.com/pyenv/pyenv
+[ "$(which pyenv 2> /dev/null)" ] && eval "$(pyenv init - zsh)"
+
 [ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
 
+## Machine specific zshrc
+test -f ~/.zshrc.local && source "$_"
+
+test -s "$HOME/.rvm/scripts/rvm" && source "$_" # Load RVM into a shell session *as a function*
+
 # Remove dupes
-typeset -U PATH
+typeset -U path
 typeset -U fpath

@@ -43,7 +43,6 @@ $zig\
 $nix_shell\
 $conda\
 $docker_context\
-$kubernetes\
 $memory_usage\
 $aws\
 $gcloud\
@@ -53,6 +52,8 @@ $env_var\
 $custom\
 $battery\
 $cmd_duration\
+$fill\
+$kubernetes\
 $line_break\
 $jobs\
 $time\
@@ -68,40 +69,12 @@ truncation_symbol = '…/'
 truncate_to_repo = false
 
 [aws]
-symbol = '  '
+symbol = ''
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 disabled = true
 
 [battery]
-full_symbol = ''
-charging_symbol = ''
-discharging_symbol = ''
-unknown_symbol = ''
-empty_symbol = ''
-format = '\[[$symbol $percentage]($style)\]'
-
-[[battery.display]]
-threshold = 20
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold red"
-
-[[battery.display]]
-threshold = 40
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 60
-charging_symbol = ''
-discharging_symbol = ''
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 80
-charging_symbol = ''
-discharging_symbol = ''
+disabled = true
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
@@ -110,48 +83,51 @@ format = '\[[$symbol($version)]($style)\]'
 format = "[祥$duration]($style)"
 
 [conda]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$environment]($style)\]'
 
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 
 [elixir]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [erlang]
 format = '\[[$symbol($version)]($style)\]'
 
+[fill]
+symbol = ' '
+
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-symbol = ' '
+symbol = ''
 format = '(\[[$symbol$branch]($style)\])'
 
 [git_state]
 format = '(\[[$state( $progress_current/$progress_total)]($style)\])'
-cherry_pick = ' '
-merge = ' '
+cherry_pick = ''
+merge = ''
 
 [git_status]
 format = '(\[$all_status$ahead_behind\])'
@@ -159,60 +135,62 @@ format = '(\[$all_status$ahead_behind\])'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
-stashed = '•'
+stashed = '[•](green)'
 
-conflicted = '[ﰸ ${count}](red)'
+conflicted = '[ﰸ${count}](red)'
 modified = '[${count}](yellow)'
 staged = '[✹${count}](green)'
 untracked = '[?${count}](red)'
 
 [golang]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [helm]
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
 format = '\[[$hostname]($style)\]'
 
 [java]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [julia]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [kotlin]
 format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$context(/$namespace)]($style)\]'
 disabled = false
 style = 'bold blue'
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
-symbol = '🌙 '
+symbol = ''
 disabled = true
 
 [memory_usage]
-symbol = ' '
+symbol = ''
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [nim]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
-symbol = ' '
-format = '\[[$symbol$state( \($name\))]($style)\]'
+symbol = ''
+format = '\[[$symbol$state(\($name\))]($style)\]'
+impure_msg = "ι"
+pure_msg = "ρ"
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'
@@ -224,38 +202,38 @@ format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [package]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol$version]($style)\]'
 
 [perl]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [php]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = ' '
+symbol = ''
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [ruby]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [rust]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [scala]
-symbol = ' '
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [shlvl]
-symbol = " "
+symbol = ""
 
 [swift]
-symbol = 'ﯣ '
+symbol = 'ﯣ'
 format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
