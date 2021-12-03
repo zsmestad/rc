@@ -144,6 +144,12 @@ zoxide_bin=~/.cargo/bin/zoxide
 # https://crates.io/crates/sccache
 [ "$(which sccache 2> /dev/null)" ] && export RUSTC_WRAPPER=sccache
 
+# https://github.com/rbenv/rbenv
+[ "$(which rbenv 2> /dev/null)" ] && eval "$(rbenv init - zsh)"
+
+# https://github.com/pyenv/pyenv
+[ "$(which pyenv 2> /dev/null)" ] && eval "$(pyenv init - zsh)"
+
 [ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
 
 ## Machine specific zshrc
