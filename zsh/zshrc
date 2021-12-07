@@ -122,11 +122,19 @@ function tt () {
   fi
 }
 
+#############
+# Functions #
+
 # Man in Preview
 # https://news.ycombinator.com/item?id=25308708
 if [ $is_mac ]; then
   pman() { man -t "$@" | open -f -a Preview; }
 fi
+
+# Simple check for a command in $PATH
+exists_in_path() {
+  which -s $1 > /dev/null
+}
 
 ################
 # App Specific #
@@ -135,20 +143,19 @@ fi
 test -f "${HOME}/.fzf.zsh" && source "$_"
 
 # https://starship.rs
-[ "$(which starship 2> /dev/null)" ] && eval "$(starship init zsh)"
+exists_in_path starship && eval "$(starship init zsh)"
 
 # https://github.com/ajeetdsouza/zoxide/
-zoxide_bin=~/.cargo/bin/zoxide
-[ "$(which zoxide 2> /dev/null)" ] && eval "$(zoxide init zsh)"
+exists_in_path zoxide && eval "$(zoxide init zsh)"
 
 # https://crates.io/crates/sccache
-[ "$(which sccache 2> /dev/null)" ] && export RUSTC_WRAPPER=sccache
+exists_in_path sccache && export RUSTC_WRAPPER=sccache
 
 # https://github.com/rbenv/rbenv
-[ "$(which rbenv 2> /dev/null)" ] && eval "$(rbenv init - zsh)"
+exists_in_path rbenv && eval "$(rbenv init - zsh)"
 
 # https://github.com/pyenv/pyenv
-[ "$(which pyenv 2> /dev/null)" ] && eval "$(pyenv init - zsh)"
+exists_in_path pyenv && eval "$(pyenv init - zsh)"
 
 [ -f ~/.config/ripgrep/conf ] && export RIPGREP_CONFIG_PATH=~/.config/ripgrep/conf
 
