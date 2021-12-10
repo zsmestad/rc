@@ -151,6 +151,9 @@ exists_in_path zoxide && eval "$(zoxide init zsh)"
 # https://crates.io/crates/sccache
 exists_in_path sccache && export RUSTC_WRAPPER=sccache
 
+# https://direnv.net/
+exists_in_path direnv && eval "$(direnv hook zsh)"
+
 # https://github.com/rbenv/rbenv
 exists_in_path rbenv && eval "$(rbenv init - zsh)"
 
