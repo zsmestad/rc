@@ -17,6 +17,8 @@ set -o vi
 
 # Prepend to $PATH
 path_pre=(
+  "${HOME}/.rbenv/shims"
+  "${HOME}/.pyenv/shims"
   "${HOME}/.nix-profile/bin"
   "${HOME}/.rvm/bin"
   "${HOME}/.cargo/bin"
@@ -150,6 +152,9 @@ exists_in_path zoxide && eval "$(zoxide init zsh)"
 
 # https://crates.io/crates/sccache
 exists_in_path sccache && export RUSTC_WRAPPER=sccache
+
+# https://direnv.net/
+exists_in_path direnv && eval "$(direnv hook zsh)"
 
 # https://github.com/rbenv/rbenv
 exists_in_path rbenv && eval "$(rbenv init - zsh)"
