@@ -12,8 +12,19 @@ let g:ale_completion_enabled = 1
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
 
-" Gitsigns dependency
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Visual
 Plug 'vim-airline/vim-airline'
@@ -34,12 +45,6 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Lint
-Plug 'dense-analysis/ale'
-
-" Completion
-Plug 'Shougo/deoplete.nvim'
-
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
@@ -54,17 +59,30 @@ endif
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
-Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'simrat39/rust-tools.nvim'
 
-" Misc FT
-Plug 'LnL7/vim-nix'
+" Python
+Plug 'cstrap/python-snippets'
+
+" Other Syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 " enable syntax highlighting
 syntax enable
 filetype plugin indent on
+
+" Set completeopt to have a better completion experience
+" :help completeopt
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing extra messages when using completion
+set shortmess+=c
 
 lua require('settings')
 lua require('maps')
