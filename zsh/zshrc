@@ -17,6 +17,8 @@ set -o vi
 
 # Prepend to $PATH
 path_pre=(
+  "${HOME}/.rbenv/shims"
+  "${HOME}/.pyenv/shims"
   "${HOME}/.nix-profile/bin"
   "${HOME}/.rvm/bin"
   "${HOME}/.cargo/bin"
