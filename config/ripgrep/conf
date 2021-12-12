@@ -1,5 +1,9 @@
 --smart-case
 
-# NFO Files for Emby
+# NFO (Emby)
 --type-add
 nfo:*.{nfo}*
+
+# Webloc (Firefox)
+--type-add
+link:*.{webloc}*
