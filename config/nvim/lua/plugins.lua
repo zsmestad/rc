@@ -30,7 +30,15 @@ g.highlightedyank_highlight_duration = 250
 
 require('gitsigns').setup()
 
-require('telescope').setup()
+require("telescope").setup {
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {}
+    }
+  }
+}
+
+require("telescope").load_extension("ui-select")
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
