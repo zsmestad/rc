@@ -44,6 +44,6 @@ if status is-interactive
 
     test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
     test -f ~/.config/fish/localconfig.fish; and source ~/.config/fish/localconfig.fish
-    test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions 
+    test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions
 end
 
