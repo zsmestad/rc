@@ -41,7 +41,7 @@ require("telescope").setup {
 require("telescope").load_extension("ui-select")
 
 -- https://github.com/nvim-treesitter/nvim-treesitter
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
@@ -70,7 +70,7 @@ require'nvim-treesitter.configs'.setup {
 -- rust-tools will configure and enable certain LSP features for us.
 -- See https://github.com/simrat39/rust-tools.nvim#configuration
 
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require('lspconfig')
 
 require('rust-tools').setup({
     tools = {
