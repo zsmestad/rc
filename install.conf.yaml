@@ -9,6 +9,7 @@
     ~/.agignore:
     ~/.config/alacritty: config/alacritty
     ~/.config/beets/config.yaml: config/beets/config.yaml
+    ~/.config/fish: config/fish
     ~/.config/mpv/config: config/mpv/config
     ~/.config/nvim: config/nvim
     ~/.config/pip: config/pip
