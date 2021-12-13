@@ -32,7 +32,7 @@ if status is-interactive
     exists_in_path direnv; and direnv hook fish | source
 
     exists_in_path sccache; and set -x RUSTC_WRAPPER sccache
-    [ -f ~/.config/ripgrep/conf ]; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
+    test -f ~/.config/ripgrep/conf; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
 
     abbr --add l  ls -lF
     abbr --add lh ls -lFh
@@ -41,5 +41,9 @@ if status is-interactive
     abbr --add kc kubectl
     abbr --add kx kubectx
     abbr --add kn kubens
+
+    test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
+    test -f ~/.config/fish/localconfig.fish; and source ~/.config/fish/localconfig.fish
+    test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions 
 end
 
