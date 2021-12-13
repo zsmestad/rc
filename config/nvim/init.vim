@@ -59,7 +59,7 @@ endif
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Rust
-Plug 'cespare/vim-toml'
+" Plug 'cespare/vim-toml'
 Plug 'simrat39/rust-tools.nvim'
 
 " Python
@@ -89,12 +89,6 @@ lua require('maps')
 
 " --Plugin Settings--
 lua require('plugins')
-
-" Ale (no idea about the lua for these)
-set omnifunc=ale#completion#OmniFunc
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace']
-\}
 
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
