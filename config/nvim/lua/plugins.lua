@@ -40,6 +40,7 @@ require("telescope").setup {
 
 require("telescope").load_extension("ui-select")
 
+-- https://github.com/nvim-treesitter/nvim-treesitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -71,8 +72,8 @@ require'nvim-treesitter.configs'.setup {
 
 local nvim_lsp = require'lspconfig'
 
-local opts = {
-    tools = { -- rust-tools options
+require('rust-tools').setup({
+    tools = {
         autoSetHints = true,
         hover_with_actions = true,
         inlay_hints = {
@@ -101,7 +102,7 @@ local opts = {
     },
 }
 
-require('rust-tools').setup({})
+)
 
 -- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 local cmp = require'cmp'
