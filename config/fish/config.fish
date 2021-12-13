@@ -3,6 +3,7 @@ set path_pre \
     "$HOME/.rbenv/shims" \
     "$HOME/.pyenv/shims" \
     "$HOME/.nix-profile/bin" \
+    '/nix/var/nix/profiles/default/bin' \
     "$HOME/.rvm/bin" \
     "$HOME/.cargo/bin" \
     "$HOME/bin" \
