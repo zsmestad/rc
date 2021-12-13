@@ -34,6 +34,10 @@ if status is-interactive
     exists_in_path sccache; and set -x RUSTC_WRAPPER sccache
     [ -f ~/.config/ripgrep/conf ]; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
 
+    abbr --add l  ls -lF
+    abbr --add lh ls -lFh
+
+    # Kubernetes
     abbr --add kc kubectl
     abbr --add kx kubectx
     abbr --add kn kubens
