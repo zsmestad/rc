@@ -25,7 +25,20 @@ for p in $path_pre[-1..1]
 end
 
 if status is-interactive
+    # TODO: figure out where this is coming from
+    abbr --erase vim
     set -g fish_key_bindings fish_vi_key_bindings
+
+    if exists_in_path nvim
+        set -x EDITOR (which nvim)
+    else
+        set -x EDITOR (which vim)
+    end
+    set -x PAGER (which less) -Rs
+    set -x VISUAL "$EDITOR"
+    set -x LESSEDIT "$EDITOR"
+    set -x LESSCHARSET 'utf-8'
+    set -x LESS '--ignore-case -R'
 
     exists_in_path starship; and starship init fish | source
     exists_in_path zoxide; and zoxide init fish | source
