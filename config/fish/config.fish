@@ -27,7 +27,6 @@ end
 if status is-interactive
     # TODO: figure out where this is coming from
     abbr --erase vim
-    set -g fish_key_bindings fish_vi_key_bindings
 
     if exists_in_path nvim
         set -x EDITOR (which nvim)
