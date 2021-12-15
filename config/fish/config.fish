@@ -1,10 +1,9 @@
 # Put these paths on the front of $PATH if the directory exists
-set path_pre \
+set -l path_pre \
     "$HOME/.rbenv/shims" \
     "$HOME/.pyenv/shims" \
     "$HOME/.nix-profile/bin" \
     '/nix/var/nix/profiles/default/bin' \
-    "$HOME/.rvm/bin" \
     "$HOME/.cargo/bin" \
     "$HOME/bin" \
     "$HOME/.local/bin" \
