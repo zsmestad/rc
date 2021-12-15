@@ -12,16 +12,21 @@ let g:ale_completion_enabled = 1
 " --Plugins--
 call plug#begin('~/.config/nvim/plugged')
 
+" LSP
 Plug 'neovim/nvim-lspconfig'
+
+" Completion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 
+" Snippets
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" Util
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -43,10 +48,6 @@ Plug 'tpope/vim-surround'
 " Change path to git root
 Plug 'airblade/vim-rooter'
 
-" Fuzzy find
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'lewis6991/gitsigns.nvim'
@@ -54,20 +55,13 @@ Plug 'lewis6991/gitsigns.nvim'
 " Terraform
 Plug 'hashivim/vim-terraform'
 
-" Markdown
-if has('mac')
-  Plug 'junegunn/vim-xmark', Cond(has('mac'), { 'do': 'make', 'for': 'markdown' })
-endif
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-
 " Rust
-" Plug 'cespare/vim-toml'
 Plug 'simrat39/rust-tools.nvim'
 
 " Python
 Plug 'cstrap/python-snippets'
 
-" Other Syntax
+" Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
