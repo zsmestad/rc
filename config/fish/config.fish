@@ -47,6 +47,9 @@ if status is-interactive
 
     abbr --add l  ls -lF
     abbr --add lh ls -lFh
+    abbr --add ..   cd ..
+    abbr --add ...  cd ../..
+    abbr --add .... cd ../../..
 
     # Kubernetes
     abbr --add kc kubectl
