@@ -27,22 +27,23 @@ if status is-interactive
     # TODO: figure out where this is coming from
     abbr --erase vim
 
-    if exists_in_path nvim
+    if command -qs nvim
         set -x EDITOR (which nvim)
     else
         set -x EDITOR (which vim)
     end
+
     set -x PAGER (which less) -Rs
     set -x VISUAL "$EDITOR"
     set -x LESSEDIT "$EDITOR"
     set -x LESSCHARSET 'utf-8'
     set -x LESS '--ignore-case -R'
 
-    exists_in_path starship; and starship init fish | source
-    exists_in_path zoxide; and zoxide init fish | source
-    exists_in_path direnv; and direnv hook fish | source
+    command -qs starship; and starship init fish | source
+    command -qs zoxide; and zoxide init fish | source
+    command -qs direnv; and direnv hook fish | source
 
-    exists_in_path sccache; and set -x RUSTC_WRAPPER sccache
+    command -qs sccache; and set -x RUSTC_WRAPPER sccache
     test -f ~/.config/ripgrep/conf; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
 
     abbr --add l  ls -lF
