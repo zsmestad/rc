@@ -1,7 +1,7 @@
 function vim
-  if exists_in_path nvim
+  if command -qs nvim
     nvim $argv
   else
-    vim $argv
+    command vim $argv
   end
 end
