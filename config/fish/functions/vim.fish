@@ -1,7 +1,3 @@
 function vim
-  if command -qs nvim
-    nvim $argv
-  else
-    command vim $argv
-  end
+  command nvim $argv; or command vim $argv
 end
