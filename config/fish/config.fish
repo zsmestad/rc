@@ -56,8 +56,11 @@ if status is-interactive
     abbr --add kc kubectl
     abbr --add kx kubectx
     abbr --add kn kubens
+    abbr --add kb kubie
 
     test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
+
+    # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
     test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions
 end
