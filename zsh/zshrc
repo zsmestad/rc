@@ -116,11 +116,10 @@ unset hfunc ufunc
 
 # Attach unattached tmux session or create a new one
 function tt () {
-  n=$(tmux list-sessions 2> /dev/null | grep -Ev '\(attached\)$' | wc -l | tr -d '[:blank:]')
-  if [ $n -gt 0 ]; then
-    tmux attach $@
+  if $(tmux list-sessions | grep -v '\(attached\)' > /dev/null); then
+    tmux -u attach $@
   else
-    tmux $@
+    tmux -u $@
   fi
 }
 
