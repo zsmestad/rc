@@ -88,6 +88,7 @@ lua require('plugins')
 
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
+au BufRead,BufNewFile .envrc,.envrc.local set filetype=bash
 
 au FileType python set ts=4 sw=4 sts=4
 au FileType ld,asm set ts=4 sw=4 sts=4
