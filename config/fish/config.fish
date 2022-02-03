@@ -9,6 +9,7 @@ set -l path_pre \
     "$HOME/.local/bin" \
     '/usr/local/bin' \
     '/usr/local/sbin' \
+    '/usr/local/opt/mysql-client/bin' \
     "$HOME/.krew/bin" \
     "$HOME/.fzf/bin"
 
