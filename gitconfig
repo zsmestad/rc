@@ -4,6 +4,7 @@ email = <email>
 
 [core]
 excludesfile = ~/.gitignore_global
+pager = less -RFX
 
 [diff]
 tool = vimdiff
@@ -12,10 +13,10 @@ tool = vimdiff
 tool = vimdiff
 
 [pager]
-diff = delta
-log = delta
-reflog = delta
-show = delta
+diff   = diffr | less -RFX
+log    = diffr | less -RFX
+reflog = diffr | less -RFX
+show   = diffr | less -RFX
 
 [delta]
 navigate = true
@@ -29,9 +30,12 @@ default = simple
 [alias]
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 unstage = reset HEAD --
-stage   = diff --staged
+staged  = diff --staged
+changed = diff --name-only
 co = checkout
 br = branch
 ci = commit
 st = status
 
+#[url "git@gitserver:"]
+#insteadOf = "https://gitserver/"
