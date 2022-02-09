@@ -24,7 +24,7 @@ if status is-interactive
     # TODO: figure out where this is coming from
     abbr --erase vim
 
-    set -x EDITOR (command -s nvim; or command -s vim; or command -s vi)
+    set -x EDITOR (command -s nvim vim vi | head -n 1)
     set -x PAGER (command -s less)
     set -x VISUAL "$EDITOR"
     set -x LESSEDIT "$EDITOR"
@@ -32,17 +32,17 @@ if status is-interactive
     set -x LESS '--ignore-case -RFX'
 
     # Init
-    command -qs starship; and starship init fish | source
-    command -qs zoxide; and zoxide init fish | source
-    command -qs direnv; and direnv hook fish | source
+    command -q starship; and starship init fish | source
+    command -q zoxide; and zoxide init fish | source
+    command -q direnv; and direnv hook fish | source
 
     # Completions
-    command -qs lab; and lab completion | source
-    command -qs just; and just --completions fish | source
-    command -qs limactl; and limactl completion fish | source
+    command -q lab; and lab completion | source
+    command -q just; and just --completions fish | source
+    command -q limactl; and limactl completion fish | source
 
     # Shell vars
-    command -qs sccache; and set -x RUSTC_WRAPPER sccache
+    command -q sccache; and set -x RUSTC_WRAPPER sccache
     test -f ~/.config/ripgrep/conf; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
     test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
 
