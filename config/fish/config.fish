@@ -31,26 +31,35 @@ if status is-interactive
     set -x LESSCHARSET 'utf-8'
     set -x LESS '--ignore-case -RFX'
 
+    # Init
     command -qs starship; and starship init fish | source
     command -qs zoxide; and zoxide init fish | source
     command -qs direnv; and direnv hook fish | source
 
+    # Completions
+    command -qs lab; and lab completion | source
+    command -qs just; and just --completions fish | source
+    command -qs limactl; and limactl completion fish | source
+
+    # Shell vars
     command -qs sccache; and set -x RUSTC_WRAPPER sccache
     test -f ~/.config/ripgrep/conf; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
+    test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
 
+    # Abbrs
     abbr --add l  ls -lF
     abbr --add lh ls -lFh
     abbr --add ..   cd ..
     abbr --add ...  cd ../..
     abbr --add .... cd ../../..
+    abbr --add cl clear
 
-    # Kubernetes
+    abbr --add gpu git push --set-upstream origin (git branch --show-current)
+
     abbr --add kc kubectl
     abbr --add kx kubectx
     abbr --add kn kubens
     abbr --add kb kubie
-
-    test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
 
     # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
