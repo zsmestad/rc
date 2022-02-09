@@ -15,30 +15,21 @@ set -l path_pre \
 
 for p in $path_pre[-1..1]
     # Erase if existing in PATH
-    if set -l i (contains -i "$p" $PATH)
-        set -e PATH[$i]
-    end
+    set -l i (contains -i "$p" $PATH); and set -e PATH[$i]
     # Prepend if dir exists
-    if [ -d "$p" ]
-        set -p PATH "$p"
-    end
+    test -d "$p"; and set -p PATH "$p"
 end
 
 if status is-interactive
     # TODO: figure out where this is coming from
     abbr --erase vim
 
-    if command -qs nvim
-        set -x EDITOR (which nvim)
-    else
-        set -x EDITOR (which vim)
-    end
-
-    set -x PAGER (which less) -Rs
+    set -x EDITOR (command -s nvim; or command -s vim; or command -s vi)
+    set -x PAGER (command -s less)
     set -x VISUAL "$EDITOR"
     set -x LESSEDIT "$EDITOR"
     set -x LESSCHARSET 'utf-8'
-    set -x LESS '--ignore-case -R'
+    set -x LESS '--ignore-case -RFX'
 
     command -qs starship; and starship init fish | source
     command -qs zoxide; and zoxide init fish | source
