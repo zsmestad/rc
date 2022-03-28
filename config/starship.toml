@@ -64,7 +64,7 @@ $character"""
 [directory]
 read_only = ' '
 # Dirs, not characters
-truncation_length = 3
+truncation_length = 5
 truncation_symbol = '…/'
 truncate_to_repo = false
 
