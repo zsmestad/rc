@@ -71,7 +71,18 @@ truncate_to_repo = false
 [aws]
 symbol = ''
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-disabled = true
+disabled = false
+[aws.region_aliases]
+eu-central-1 = 'euc1'
+eu-north-1   = 'eun1'
+eu-south-1   = 'eus1'
+eu-west-1    = 'euw1'
+eu-west-2    = 'euw2'
+eu-west-3    = 'euw3'
+us-east-1    = 'use1'
+us-east-2    = 'use2'
+us-west-1    = 'usw1'
+us-west-2    = 'usw2'
 
 [battery]
 disabled = true
