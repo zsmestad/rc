@@ -54,7 +54,7 @@ if status is-interactive
     abbr --add .... cd ../../..
     abbr --add cl clear
 
-    abbr --add gpu git push --set-upstream origin (git branch --show-current)
+    abbr --add gpu git push --set-upstream origin '(git branch --show-current)'
 
     abbr --add kc kubectl
     abbr --add kx kubectx
