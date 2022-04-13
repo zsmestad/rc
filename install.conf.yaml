@@ -7,6 +7,7 @@
 
 - link:
     ~/.agignore:
+    ~/.asdfrc:
     ~/.config/alacritty: config/alacritty
     ~/.config/beets/config.yaml: config/beets/config.yaml
     ~/.config/fish: config/fish
@@ -17,6 +18,8 @@
     ~/.config/ripgrep: config/ripgrep
     ~/.config/starship.toml: config/starship.toml
     ~/.config/youtube-dl/config: config/youtube-dl/config
+    ~/.default-gems:
+    ~/.default-golang-pkgs:
     ~/.gitignore_global:
     ~/.haskeline:
     ~/.inputrc:
