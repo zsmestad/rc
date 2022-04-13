@@ -1,7 +1,5 @@
 # Put these paths on the front of $PATH if the directory exists
 set -l path_pre \
-    "$HOME/.rbenv/shims" \
-    "$HOME/.pyenv/shims" \
     "$HOME/.nix-profile/bin" \
     '/nix/var/nix/profiles/default/bin' \
     "$HOME/.cargo/bin" \
@@ -35,6 +33,10 @@ if status is-interactive
     command -q starship; and starship init fish | source
     command -q zoxide; and zoxide init fish | source
     command -q direnv; and direnv hook fish | source
+    if test -f ~/.asdf/asdf.fish
+      source ~/.asdf/asdf.fish
+      source ~/.asdf/completions/asdf.fish
+    end
 
     # Completions
     command -q lab; and lab completion | source
