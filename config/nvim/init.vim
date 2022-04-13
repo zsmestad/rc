@@ -85,14 +85,18 @@ lua require('maps')
 
 " --Plugin Settings--
 lua require('plugins')
+lua require('lsp_config')
 
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile .envrc,.envrc.local set filetype=bash
+au BufWritePre *.go lua vim.lsp.buf.formatting()
+au BufWritePre *.go lua goimports(1000)
 
-au FileType python set ts=4 sw=4 sts=4
+au FileType go     set ts=4 sw=4 noet lcs=tab:\ \ ,trail:-
 au FileType ld,asm set ts=4 sw=4 sts=4
 au FileType make   set ts=4 sw=4 noet lcs=tab:\ \ ,trail:-
+au FileType python set ts=4 sw=4 sts=4
 
 " automatically rebalance windows on vim resize
 au VimResized * :wincmd =
