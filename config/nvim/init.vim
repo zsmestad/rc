@@ -90,8 +90,9 @@ lua require('lsp_config')
 " --Filetypes--
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile .envrc,.envrc.local set filetype=bash
+au BufRead,BufNewFile go.mod set filetype=go
 au BufWritePre *.go lua vim.lsp.buf.formatting()
-au BufWritePre *.go lua goimports(1000)
+" au BufWritePre *.go lua goimports(1000)
 
 au FileType go     set ts=4 sw=4 noet lcs=tab:\ \ ,trail:-
 au FileType ld,asm set ts=4 sw=4 sts=4
