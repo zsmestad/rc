@@ -110,6 +110,7 @@ format = '\[[$symbol($version)]($style)\]'
 [docker_context]
 symbol = ''
 format = '\[[$symbol$context]($style)\]'
+disabled = true
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
