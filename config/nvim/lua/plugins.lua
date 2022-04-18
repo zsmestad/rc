@@ -46,7 +46,7 @@ require('nvim-treesitter.configs').setup {
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true, -- false will disable the whole extension
     disable = {},  -- list of language that will be disabled
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -72,9 +72,6 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end,
   },
   mapping = {
@@ -93,9 +90,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
