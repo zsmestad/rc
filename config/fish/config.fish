@@ -57,6 +57,8 @@ if status is-interactive
     abbr --add lh ls -lFh
 
     # Git Abbrs
+    abbr --add gds git diff --staged
+    abbr --add gpp git pull --prune
     abbr --add gpu git push --set-upstream origin '(git branch --show-current)'
 
     # K8s Abbrs
