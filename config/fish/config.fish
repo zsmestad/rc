@@ -49,19 +49,21 @@ if status is-interactive
     test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
 
     # Abbrs
-    abbr --add l  ls -lF
-    abbr --add lh ls -lFh
     abbr --add ..   cd ..
     abbr --add ...  cd ../..
     abbr --add .... cd ../../..
     abbr --add cl clear
+    abbr --add l  ls -lF
+    abbr --add lh ls -lFh
 
+    # Git Abbrs
     abbr --add gpu git push --set-upstream origin '(git branch --show-current)'
 
-    abbr --add kc kubectl
-    abbr --add kx kubectx
-    abbr --add kn kubens
+    # K8s Abbrs
     abbr --add kb kubie
+    abbr --add kc kubectl
+    abbr --add kn kubens
+    abbr --add kx kubectx
 
     # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
