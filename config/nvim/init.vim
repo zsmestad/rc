@@ -43,9 +43,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
-" Comments and Quotes
-Plug 'tpope/vim-surround'
-
 " Change path to git root
 Plug 'airblade/vim-rooter'
 
