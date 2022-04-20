@@ -33,6 +33,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
+
 " Visual
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
@@ -42,7 +44,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Comments and Quotes
-Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Change path to git root
