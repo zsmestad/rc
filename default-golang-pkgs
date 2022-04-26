@@ -1,1 +1,2 @@
 golang.org/x/tools/gopls@latest
+github.com/gomatic/renderizer/v2/cmd/renderizer@latest
