@@ -20,6 +20,10 @@ set.showcmd = true
 -- Place turd.swp files here
 set.directory = vim.fn.getenv('HOME') .. '/.local/tmp'
 
+-- Splits
+set.splitright = true
+set.splitbelow = true
+
 -- Tab complete command mode files with nice menu
 set.wildmenu = true
 set.wildignore = 'log/**,node_modules/**,target/**,tmp/**,*.rbc,*.o,*.obj,.git,bower_components/**,**/node_modules/**,_build/**,deps/**'
