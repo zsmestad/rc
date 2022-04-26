@@ -1,15 +1,23 @@
 local set = vim.opt
 local g   = vim.g
 
-set.mouse = ''
+set.background = 'dark'
 set.encoding = 'utf-8'
 set.fileencoding = 'utf-8'
-set.background = 'dark'
+
+-- No mouse
+set.mouse = ''
+
+-- Show tabs and trailing spaces
 set.list = true
 set.listchars = 'tab:▸ ,trail:-'
+
 set.pastetoggle = '<F2>'
+
 set.ruler = true
 set.showcmd = true
+
+-- Place turd.swp files here
 set.directory = vim.fn.getenv('HOME') .. '/.local/tmp'
 
 -- Tab complete command mode files with nice menu
