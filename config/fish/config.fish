@@ -67,6 +67,15 @@ if status is-interactive
     abbr --add kn kubens
     abbr --add kx kubectx
 
+    # Update Abbrs
+    if command -q brew
+      abbr --add upd 'brew update && brew outdated'
+      abbr --add upg 'brew upgrade'
+    else if command -q apt
+      abbr --add upd 'sudo apt update && apt list --upgradable'
+      abbr --add upg 'sudo apt upgrade -y'
+    end
+
     # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
     test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions
