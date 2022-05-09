@@ -178,6 +178,8 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i','c'}),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i','c'}),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
