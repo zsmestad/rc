@@ -3,6 +3,7 @@ command_timeout = 1000
 format = """
 $username\
 $hostname\
+$localip\
 $shlvl\
 $directory\
 $vcsh\
@@ -167,7 +168,9 @@ symbol = ''
 format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
+ssh_only = true
 format = '\[[$hostname]($style)\]'
+disabled = false
 
 [java]
 symbol = ''
@@ -185,6 +188,11 @@ symbol = ''
 format = '\[[$symbol$context(/$namespace)]($style)\]'
 disabled = false
 style = 'bold blue'
+
+[localip]
+ssh_only = false
+format = "@[$localipv4](bold red) "
+disabled = true
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
