@@ -20,7 +20,7 @@ end
 
 if status is-interactive
     # TODO: figure out where this is coming from
-    abbr --erase vim
+    abbr --query vim; and abbr --erase vim
 
     set -x EDITOR (command -s nvim vim vi | head -n 1)
     set -x PAGER (command -s less)
