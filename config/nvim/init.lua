@@ -55,7 +55,8 @@ vim.o.hlsearch = true
 vim.wo.number = true
 
 --Enable mouse mode
-vim.o.mouse = 'a'
+--vim.o.mouse = 'a'
+vim.o.mouse = ''
 
 --Enable break indent
 vim.o.breakindent = true
