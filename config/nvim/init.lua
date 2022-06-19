@@ -131,7 +131,8 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
-vim.keymap.set('n', '<C-n>', ':NeoTreeFocusToggle<cr>', opts)
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', opts)
+vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>', opts)
 
 vim.keymap.set('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts)
 vim.keymap.set('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], opts)
