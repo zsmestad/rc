@@ -20,12 +20,12 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  --use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
-  use 'morhetz/gruvbox'
+  use 'navarasu/onedark.nvim'
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
 
-  -- Add git related info in the signs columns and popups
+  -- Git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
@@ -44,13 +44,12 @@ require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
   use 'echasnovski/mini.nvim'
-  use {
-    "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
+  use { 'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v2.x',
       requires = { 
-        "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
+        'nvim-lua/plenary.nvim',
+        'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
+        'MunifTanjim/nui.nvim',
     }
   }
 
@@ -80,10 +79,6 @@ vim.o.smartcase = true
 --Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
-
---Set colorscheme
-vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -121,7 +116,6 @@ vim.o.autoread = true
 
 vim.o.foldmethod = 'marker'
 
-
 --- Keymap
 local opts = { noremap = true }
 
@@ -148,11 +142,20 @@ vim.keymap.set('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_g
 vim.keymap.set('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opts)
 vim.keymap.set('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]], opts)
 
+----- Theme ------
+vim.o.termguicolors = true
+
+require('onedark').setup {
+    style = 'darker'
+}
+require('onedark').load()
+
+----- Status Bar -----
 --Set statusbar
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox',
+    theme = 'onedark',
     component_separators = '|',
     section_separators = '',
   },
@@ -168,6 +171,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+----- Git -----
 -- Gitsigns
 require('gitsigns').setup {
   signs = {
@@ -178,6 +182,9 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+local neogit = require('neogit')
+neogit.setup {}
 
 -- Telescope
 require('telescope').setup {
@@ -645,6 +652,5 @@ require("neo-tree").setup({
     }
   }
 })
-
 
 -- vim: ts=2 sts=2 sw=2 et
