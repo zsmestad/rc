@@ -218,7 +218,8 @@ vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles)
 
 -- Treesitter configuration
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'bash',
+  ensure_installed = {
+    'bash',
     'dockerfile',
     'fish',
     'go',
