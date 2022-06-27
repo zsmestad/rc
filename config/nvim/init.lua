@@ -66,7 +66,7 @@ vim.wo.number = true
 --vim.o.mouse = 'a'
 vim.o.mouse = ''
 
---Enable break indent
+--Indent wrapped lines
 vim.o.breakindent = true
 
 --Save undo history
@@ -247,7 +247,8 @@ require('nvim-treesitter.configs').setup {
     },
   },
   indent = {
-    enable = true,
+    -- Experimental. If you like unexpected outdentation, turn this on
+    enable = false,
   },
   textobjects = {
     select = {
