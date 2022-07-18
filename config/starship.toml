@@ -169,7 +169,7 @@ format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
 ssh_only = true
-format = '\[[$hostname]($style)\]'
+format = '@[$hostname]($style)'
 disabled = false
 
 [java]
@@ -264,7 +264,7 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
-format = '\[[$user]($style)\]'
+format = '[$user]($style)'
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
