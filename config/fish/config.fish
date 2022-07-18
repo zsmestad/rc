@@ -56,6 +56,8 @@ if status is-interactive
     abbr --add l  ls -lF
     abbr --add lh ls -lFh
 
+    abbr --add ta 'tmux -u attach'
+
     # Git Abbrs
     abbr --add g   git
     abbr --add gds git diff --staged
