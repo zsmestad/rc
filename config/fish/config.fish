@@ -79,6 +79,9 @@ if status is-interactive
       abbr --add upg 'sudo apt upgrade -y'
     end
 
+    # Misc
+    command -q pueue; and abbr --add p pueue
+
     # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
     test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions
