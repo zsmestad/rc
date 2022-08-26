@@ -16,19 +16,23 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
+
+  -- Theme
+  use 'navarasu/onedark.nvim'
+  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+
+  -- Highlight, edit, and navigate code using a fast incremental parsing library
+  use 'nvim-treesitter/nvim-treesitter'
+
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use 'navarasu/onedark.nvim'
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use { 'folke/which-key.nvim' }
 
   -- Git
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim' } }
-
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
 
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -407,6 +411,8 @@ cmp.setup {
   },
 }
 
+require("which-key").setup {}
+
 -- mini.indentscope
 local mini_indentscope = require('mini.indentscope')
 mini_indentscope.setup {
@@ -672,5 +678,3 @@ require("neo-tree").setup({
     }
   }
 })
-
--- vim: ts=2 sts=2 sw=2 et
