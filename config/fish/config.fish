@@ -19,6 +19,8 @@ for p in $path_pre[-1..1]
 end
 
 if status is-interactive
+    set -U fish_features qmark-noglob
+
     # TODO: figure out where this is coming from
     abbr --query vim; and abbr --erase vim
 
