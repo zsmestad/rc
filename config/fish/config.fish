@@ -48,7 +48,14 @@ if status is-interactive
     # Shell vars
     command -q sccache; and set -x RUSTC_WRAPPER sccache
     test -f ~/.config/ripgrep/conf; and set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/conf"
-    test (uname) = 'Darwin'; and set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
+
+    switch (uname)
+      case Darwin
+        set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
+        abbr --add disks 'df -h'
+      case Linux
+        abbr --add disks "df -Th |  grep -vE '^(/dev/loop|tmpfs|udev)'"
+    end
 
     # Abbrs
     abbr --add ..   cd ..
