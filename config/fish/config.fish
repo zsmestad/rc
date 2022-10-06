@@ -35,14 +35,17 @@ if status is-interactive
     command -q starship; and starship init fish | source
     command -q zoxide; and zoxide init fish | source
     command -q direnv; and direnv hook fish | source
+
     if test -f ~/.asdf/asdf.fish
       source ~/.asdf/asdf.fish
       source ~/.asdf/completions/asdf.fish
     end
 
     # Completions
-    command -q lab; and lab completion | source
+    command -q cilium; and cilium completion fish | source
+    command -q hubble; and hubble completion fish | source
     command -q just; and just --completions fish | source
+    command -q lab; and lab completion | source
     command -q limactl; and limactl completion fish | source
 
     # Shell vars
