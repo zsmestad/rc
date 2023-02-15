@@ -322,9 +322,12 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Enable the following language servers
+-- Enable language servers
+-- pip install ruff-lsp
+-- rustup component add rust-analyzer
+-- gem install solargraph
 local servers = {
-  'pyright',
+  'ruff_lsp',
   'rust_analyzer',
   'solargraph',
 }
