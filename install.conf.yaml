@@ -20,6 +20,7 @@
     ~/.config/youtube-dl/config: config/youtube-dl/config
     ~/.default-gems:
     ~/.default-golang-pkgs:
+    ~/.default-python-packages:
     ~/.gitignore_global:
     ~/.haskeline:
     ~/.inputrc:
