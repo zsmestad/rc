@@ -50,7 +50,7 @@ require('packer').startup(function(use)
   use 'echasnovski/mini.nvim'
   use { 'nvim-neo-tree/neo-tree.nvim',
       branch = 'v2.x',
-      requires = { 
+      requires = {
         'nvim-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
         'MunifTanjim/nui.nvim',
@@ -319,17 +319,23 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable language servers
--- pip install ruff-lsp
--- rustup component add rust-analyzer
--- gem install solargraph
+-- bashls:        brew install shellcheck bash-language-server
+-- lua_ls:        brew install lua-language-server
+-- ruff_lsp:      pip install ruff-lsp
+-- rust_analyzer: rustup component add rust-analyzer
+-- solargraph:    gem install solargraph
+-- yamlls:        brew install yaml-language-server
 local servers = {
+  'bashls',
   'ruff_lsp',
   'rust_analyzer',
   'solargraph',
+  'yamlls',
 }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -337,6 +343,30 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- Specific for nvim config
+require'lspconfig'.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
 -- Example custom server
 -- Make runtime files discoverable to the server
