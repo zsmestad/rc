@@ -1,4 +1,5 @@
-.netrwhist
 .*.swp
+.luarc.json
+.netrwhist
 .xmark.*
 zsh/func
