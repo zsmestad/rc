@@ -41,12 +41,22 @@ if status is-interactive
       source ~/.asdf/completions/asdf.fish
     end
 
-    # Completions
-    command -q cilium; and cilium completion fish | source
-    command -q hubble; and hubble completion fish | source
-    command -q just; and just --completions fish | source
-    command -q lab; and lab completion | source
-    command -q limactl; and limactl completion fish | source
+    # Completions - dump into completions dir if not existing
+    set -l completions \
+      'cilium completion fish' \
+      'hubble completion fish' \
+      'just --completions fish' \
+      'lab completion' \
+      'limactl completion fish' \
+      'poetry completions fish'
+
+    for cmp_cmd in $completions[]
+      set -l cmd (string split ' ' $cmp_cmd)[1]
+      set -l cmp_file "$__fish_config_dir/completions/$cmd.fish"
+      if not test -f "$cmp_file"; and command -q $cmd
+        eval $cmp_cmd > "$cmp_file"
+      end
+    end
 
     # Shell vars
     command -q sccache; and set -x RUSTC_WRAPPER sccache
