@@ -565,8 +565,8 @@ require("neo-tree").setup({
       nowait = true,
     },
     mappings = {
-      ["<space>"] = { 
-          "toggle_node", 
+      ["<space>"] = {
+          "toggle_node",
           nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
       },
       ["<2-LeftMouse>"] = "open",
@@ -578,7 +578,7 @@ require("neo-tree").setup({
       ["t"] = "open_tabnew",
       ["w"] = "open_with_window_picker",
       ["C"] = "close_node",
-      ["a"] = { 
+      ["a"] = {
         "add",
         -- some commands may take optional config options, see `:h neo-tree-mappings` for details
         config = {
