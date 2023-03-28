@@ -325,6 +325,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable language servers
 -- bashls:        brew install shellcheck bash-language-server
+--                or: npm i -g bash-language-server
 -- lua_ls:        brew install lua-language-server
 -- ruff_lsp:      pip install ruff-lsp
 -- rust_analyzer: rustup component add rust-analyzer
