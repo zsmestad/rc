@@ -64,14 +64,14 @@ $shell\
 $character"""
 
 [directory]
-read_only = ' '
+read_only = ''
 # Dirs, not characters
 truncation_length = 5
 truncation_symbol = '…/'
 truncate_to_repo = false
 
 [aws]
-symbol = ''
+symbol = '󰸏'
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 disabled = false
 [aws.region_aliases]
@@ -93,13 +93,14 @@ disabled = true
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
-format = "[祥$duration]($style)"
+format = "[󱎫$duration]($style)"
 
 [conda]
 symbol = ''
 format = '\[[$symbol$environment]($style)\]'
 
 [crystal]
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [dart]
@@ -126,12 +127,14 @@ symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [erlang]
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [fill]
 symbol = ' '
 
 [gcloud]
+symbol = '󱇶'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
@@ -149,7 +152,7 @@ format = '(\[$all_status$ahead_behind\])'
 ahead = '⇡${count}'
 diverged = '⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
-stashed = '[•](green)'
+stashed = '[](green)'
 
 conflicted = '[ﰸ${count}](red)'
 modified = '[${count}](yellow)'
@@ -161,6 +164,7 @@ symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [helm]
+symbol = '󰷀'
 format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
@@ -181,6 +185,7 @@ symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [kotlin]
+symbol = '󱈙'
 format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
@@ -200,11 +205,11 @@ symbol = ''
 disabled = true
 
 [memory_usage]
-symbol = ''
+symbol = '󰍛'
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 
 [nim]
-symbol = ''
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
@@ -214,16 +219,18 @@ impure_msg = "ι"
 pure_msg = "ρ"
 
 [nodejs]
+symbol = '󰎙'
 format = '\[[$symbol($version)]($style)\]'
 
 [ocaml]
+symbol = ''
 format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
 
 [openstack]
 format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [package]
-symbol = ''
+symbol = '󰏓'
 format = '\[[$symbol$version]($style)\]'
 
 [perl]
@@ -258,6 +265,7 @@ symbol = 'ﯣ'
 format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
+symbol = '󱁢'
 format = '\[[$symbol$workspace]($style)\]'
 
 [time]
@@ -273,4 +281,5 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [zig]
+symbol = ''
 format = '\[[$symbol($version)]($style)\]'
