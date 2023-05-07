@@ -50,7 +50,7 @@ if status is-interactive
       'limactl completion fish' \
       'poetry completions fish'
 
-    for cmp_cmd in $completions[]
+    for cmp_cmd in $completions
       set -l cmd (string split ' ' $cmp_cmd)[1]
       set -l cmp_file "$__fish_config_dir/completions/$cmd.fish"
       if not test -f "$cmp_file"; and command -q $cmd
