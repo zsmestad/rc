@@ -1,64 +1,73 @@
--- Based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
--- ^ Repo deleted a few days after I used it, lol
-
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
+vim.opt.rtp:prepend(lazypath)
 
 -- neo-tree setting
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- Package manager
-
+require("lazy").setup({
   -- Theme
-  use 'navarasu/onedark.nvim'
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  {
+    'navarasu/onedark.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('onedark').setup {
+          style = 'darker'
+      }
+      require('onedark').load()
+    end,
+  },
+  'nvim-lualine/lualine.nvim',
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
+  'nvim-treesitter/nvim-treesitter',
 
   -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
-  use { 'folke/which-key.nvim' }
+  { 'folke/which-key.nvim' },
 
   -- Git
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim' } }
+  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'TimUntersberger/neogit', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  'neovim/nvim-lspconfig',
 
   -- Complation
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  'L3MON4D3/LuaSnip',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-path',
+  'hrsh7th/nvim-cmp',
+  'saadparwaiz1/cmp_luasnip',
 
-  use 'echasnovski/mini.nvim'
-  use { 'nvim-neo-tree/neo-tree.nvim',
+  'echasnovski/mini.nvim',
+  { 'nvim-neo-tree/neo-tree.nvim',
       branch = 'v2.x',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
+      dependencies = {
         'MunifTanjim/nui.nvim',
+        'kyazdani42/nvim-web-devicons',
+        'nvim-lua/plenary.nvim',
     }
-  }
+  },
 
-  use 'christoomey/vim-tmux-navigator'
-end)
+  'christoomey/vim-tmux-navigator',
+  'HigherOrderCO/Kind.nvim',
+})
 
 --Set highlight on search
 vim.o.hlsearch = true
@@ -148,11 +157,6 @@ vim.keymap.set('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_t
 
 ----- Theme ------
 vim.o.termguicolors = true
-
-require('onedark').setup {
-    style = 'darker'
-}
-require('onedark').load()
 
 ----- Status Bar -----
 --Set statusbar
@@ -669,3 +673,14 @@ require("neo-tree").setup({
     }
   }
 })
+
+-- Kind programming language
+local treesitter_config = require("nvim-treesitter.configs")
+treesitter_config.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = true,
+  },
+}
+
+require("kind").setup()
