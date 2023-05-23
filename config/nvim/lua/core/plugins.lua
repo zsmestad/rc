@@ -12,41 +12,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- Theme
-  {
-    'navarasu/onedark.nvim',
-    lazy = false,
-    priority = 1000,
-  },
+  -- Theme/Info
+  { 'navarasu/onedark.nvim', lazy = false, priority = 1000 },
   'nvim-lualine/lualine.nvim',
+  'folke/which-key.nvim',
 
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
-  'nvim-treesitter/nvim-treesitter',
-
-  -- UI to select things (files, grep results, open buffers...)
-  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
-  { 'folke/which-key.nvim' },
-
-  -- Git
-  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'TimUntersberger/neogit', dependencies = { 'nvim-lua/plenary.nvim' } },
-
-  -- Additional textobjects for treesitter
-  'nvim-treesitter/nvim-treesitter-textobjects',
+  -- LSP
   'neovim/nvim-lspconfig',
+  'nvim-treesitter/nvim-treesitter',
+  'nvim-treesitter/nvim-treesitter-textobjects',
 
-  -- Complation
-  'L3MON4D3/LuaSnip',
+  -- Completion
+  'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-path',
-  'hrsh7th/nvim-cmp',
+
+  -- Snippets
+  'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',
 
+  -- Comments, Surround, others
   'echasnovski/mini.nvim',
+
+  -- Navigation
+  'christoomey/vim-tmux-navigator',
   { 'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     dependencies = {
@@ -55,7 +46,16 @@ require("lazy").setup({
       'nvim-lua/plenary.nvim',
     }
   },
+
   -- { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },
-  'christoomey/vim-tmux-navigator',
+
+  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+
+  -- Git
+  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'TimUntersberger/neogit', dependencies = { 'nvim-lua/plenary.nvim' } },
+
+  -- Language
   -- 'HigherOrderCO/Kind.nvim',
 })
