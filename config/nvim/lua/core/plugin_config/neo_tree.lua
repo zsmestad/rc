@@ -1,3 +1,7 @@
+local opts = { noremap = true }
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', opts)
+vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>', opts)
+
 require("neo-tree").setup({
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
@@ -24,7 +28,8 @@ require("neo-tree").setup({
     icon = {
       folder_closed = "",
       folder_open = "",
-      folder_empty = "ﰊ",
+      folder_empty = "󰜌",
+      folder_empty_open = "󰜌",
       -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
       -- then these will never be used.
       default = "*",
@@ -42,18 +47,38 @@ require("neo-tree").setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted   = "✖",-- this can only be used in the git_status source
-        renamed   = "",-- this can only be used in the git_status source
+        added     = "✚", -- NOTE: you can set any of these to an empty string to not show them
+        deleted   = "✖",
+        modified  = "",
+        renamed   = "󰁕",
         -- Status type
         untracked = "",
         ignored   = "",
-        unstaged  = "?",
-        staged    = "",
-        conflict  = "ﰸ",
+        unstaged  = "󰄱",
+        staged    = "",
+        conflict  = "",
       }
     },
+  },
+  document_symbols = {
+    kinds = {
+      File = { icon = "󰈙", hl = "Tag" },
+      Namespace = { icon = "󰌗", hl = "Include" },
+      Package = { icon = "󰏖", hl = "Label" },
+      Class = { icon = "󰌗", hl = "Include" },
+      Property = { icon = "󰆧", hl = "@property" },
+      Enum = { icon = "󰒻", hl = "@number" },
+      Function = { icon = "󰊕", hl = "Function" },
+      String = { icon = "󰀬", hl = "String" },
+      Number = { icon = "󰎠", hl = "Number" },
+      Array = { icon = "󰅪", hl = "Type" },
+      Object = { icon = "󰅩", hl = "Type" },
+      Key = { icon = "󰌋", hl = "" },
+      Struct = { icon = "󰌗", hl = "Type" },
+      Operator = { icon = "󰆕", hl = "Operator" },
+      TypeParameter = { icon = "󰊄", hl = "Type" },
+      StaticMethod = { icon = '󰠄 ', hl = 'Function' },
+    }
   },
   window = {
     position = "left",
