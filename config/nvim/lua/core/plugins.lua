@@ -58,7 +58,7 @@ require("lazy").setup({
         'nvim-lua/plenary.nvim',
     }
   },
-
+  -- { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },
   'christoomey/vim-tmux-navigator',
   -- 'HigherOrderCO/Kind.nvim',
 })
