@@ -11,9 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- neo-tree setting
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
 require("lazy").setup({
   -- Theme
   {
@@ -51,11 +48,11 @@ require("lazy").setup({
 
   'echasnovski/mini.nvim',
   { 'nvim-neo-tree/neo-tree.nvim',
-      branch = 'v2.x',
-      dependencies = {
-        'MunifTanjim/nui.nvim',
-        'kyazdani42/nvim-web-devicons',
-        'nvim-lua/plenary.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'nvim-lua/plenary.nvim',
     }
   },
   -- { 'stevearc/oil.nvim', dependencies = { "nvim-tree/nvim-web-devicons" } },

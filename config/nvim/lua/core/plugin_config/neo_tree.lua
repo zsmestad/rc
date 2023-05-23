@@ -2,6 +2,8 @@ local opts = { noremap = true }
 vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', opts)
 vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>', opts)
 
+vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
 require("neo-tree").setup({
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
