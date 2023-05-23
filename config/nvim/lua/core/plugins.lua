@@ -60,5 +60,5 @@ require("lazy").setup({
   },
 
   'christoomey/vim-tmux-navigator',
-  'HigherOrderCO/Kind.nvim',
+  -- 'HigherOrderCO/Kind.nvim',
 })

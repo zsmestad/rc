@@ -1,5 +1,5 @@
 require('core.plugin_config.gitsigns')
-require('core.plugin_config.kind')
+-- require('core.plugin_config.kind')
 require('core.plugin_config.lsp')
 require('core.plugin_config.lualine')
 require('core.plugin_config.luasnip')
