@@ -1,3 +1,5 @@
+require('core.plugin_config.theme-onedark')
+
 require('core.plugin_config.gitsigns')
 -- require('core.plugin_config.kind')
 require('core.plugin_config.lsp')
@@ -9,6 +11,5 @@ require('core.plugin_config.neo_tree')
 require('core.plugin_config.neogit')
 -- require('core.plugin_config.oil')
 require('core.plugin_config.telescope')
-require('core.plugin_config.theme-onedark')
 require('core.plugin_config.treesitter')
 require('core.plugin_config.which_key')
