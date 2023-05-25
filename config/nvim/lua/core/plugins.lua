@@ -34,7 +34,7 @@ require("lazy").setup({
   'saadparwaiz1/cmp_luasnip',
 
   -- Comments, Surround, others
-  'echasnovski/mini.nvim',
+  { 'echasnovski/mini.nvim', version = false },
 
   -- Navigation
   'christoomey/vim-tmux-navigator',
