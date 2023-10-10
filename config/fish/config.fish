@@ -1,3 +1,6 @@
+set -x LC_ALL en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
+
 # Put these paths on the front of $PATH if the directory exists
 set -l path_pre \
     "$HOME/.nix-profile/bin" \
