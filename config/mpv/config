@@ -1,6 +1,8 @@
 fs=yes
 native-fs=yes
 
+sub-auto=fuzzy
+
 screenshot-format=jpg
 screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
 
