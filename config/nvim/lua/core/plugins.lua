@@ -55,7 +55,4 @@ require("lazy").setup({
   -- Git
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'TimUntersberger/neogit', dependencies = { 'nvim-lua/plenary.nvim' } },
-
-  -- Language
-  -- 'HigherOrderCO/Kind.nvim',
 })
