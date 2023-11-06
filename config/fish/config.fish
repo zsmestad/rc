@@ -89,6 +89,9 @@ if status is-interactive
     abbr --add gpp git pull --prune
     abbr --add gpu git push --set-upstream origin '(git branch --show-current)'
 
+    # cargo install sd gitoxide
+    abbr --add repos 'ein tool find | sd "^\./" ""'
+
     # K8s Abbrs
     abbr --add kb kubie
     abbr --add kc kubectl
