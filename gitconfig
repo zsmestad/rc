@@ -2,18 +2,21 @@
 name = <name>
 email = <email>
 
+[init]
+defaultBranch = main
+
 [core]
 excludesfile = ~/.gitignore_global
 pager = less -RFX
 
-[init]
-defaultBranch = main
-
 [diff]
-tool = vimdiff
+tool = vim -d
+
+[diff "sopsdiffer"]
+textconv = sops -d
 
 [merge]
-tool = vimdiff
+tool = vim -d
 
 [pager]
 diff   = diffr | less -RFX
@@ -25,7 +28,7 @@ show   = diffr | less -RFX
 navigate = true
 
 [interactive]
-diffFilter = delta --color-only
+diffFilter = diffr | less -RFX
 
 [push]
 default = simple
@@ -40,11 +43,11 @@ co = checkout
 st = status
 sw = switch
 
+changed = diff --name-only
 staged  = diff --staged
 unstage = reset HEAD --
 
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-lng = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
 #[url "git@gitserver:"]
 #insteadOf = "https://gitserver/"
