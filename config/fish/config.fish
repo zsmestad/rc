@@ -47,6 +47,7 @@ if status is-interactive
 
     # Completions - dump into completions dir if not existing
     set -l completions \
+      'rustic completions fish' \
       'cilium completion fish' \
       'hubble completion fish' \
       'just --completions fish' \
