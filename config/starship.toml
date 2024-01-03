@@ -55,6 +55,7 @@ $custom\
 $battery\
 $cmd_duration\
 $fill\
+$direnv\
 $kubernetes\
 $line_break\
 $jobs\
@@ -109,6 +110,19 @@ format = '\[[$symbol($version)]($style)\]'
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
+
+[direnv]
+format = '\[[$symbol $loaded/$allowed]($style)\]'
+symbol = ''
+style = '#ff9900'
+detect_extensions = []
+detect_files = ['.envrc']
+detect_folders = []
+allowed_msg = ''
+denied_msg = ''
+loaded_msg = ""
+unloaded_msg = ''
+disabled = false
 
 [docker_context]
 symbol = ''
@@ -191,8 +205,8 @@ format = '\[[$symbol($version)]($style)\]'
 [kubernetes]
 symbol = ''
 format = '\[[$symbol$context(/$namespace)]($style)\]'
-disabled = false
 style = 'bold blue'
+disabled = false
 
 [localip]
 ssh_only = false
