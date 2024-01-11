@@ -47,13 +47,14 @@ if status is-interactive
 
     # Completions - dump into completions dir if not existing
     set -l completions \
-      'rustic completions fish' \
       'cilium completion fish' \
       'hubble completion fish' \
       'just --completions fish' \
       'lab completion' \
       'limactl completion fish' \
-      'poetry completions fish'
+      'poetry completions fish' \
+      'rustic completions fish' \
+      'rg --generate complete-fish'
 
     for cmp_cmd in $completions
       set -l cmd (string split ' ' $cmp_cmd)[1]
