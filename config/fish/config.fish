@@ -40,7 +40,9 @@ if status is-interactive
     command -q zoxide; and zoxide init fish | source
     command -q direnv; and direnv hook fish | source
 
-    if test -f ~/.asdf/asdf.fish
+    if command -q mise
+      mise activate fish | source
+    else if test -f ~/.asdf/asdf.fish
       source ~/.asdf/asdf.fish
       source ~/.asdf/completions/asdf.fish
     end
@@ -52,9 +54,10 @@ if status is-interactive
       'just --completions fish' \
       'lab completion' \
       'limactl completion fish' \
+      'mise completion fish' \
       'poetry completions fish' \
-      'rustic completions fish' \
-      'rg --generate complete-fish'
+      'rg --generate complete-fish' \
+      'rustic completions fish'
 
     for cmp_cmd in $completions
       set -l cmd (string split ' ' $cmp_cmd)[1]
