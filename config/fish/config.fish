@@ -113,6 +113,15 @@ if status is-interactive
       abbr --add upg 'sudo apt upgrade -y'
     end
 
+    # Open Abbrs
+    if command -q Open
+      abbr --add o  'open'
+      abbr --add o. 'open .'
+    else if command -q xdg-open
+      abbr --add o  'xdg-open'
+      abbr --add o. 'xdg-open .'
+    end
+
     # Misc
     command -q pueue; and abbr --add p pueue
 
