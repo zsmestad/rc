@@ -11,8 +11,7 @@ set -l path_pre \
     '/opt/homebrew/bin' \
     '/usr/local/bin' \
     '/usr/local/sbin' \
-    '/usr/local/opt/mysql-client/bin' \
-    "$HOME/.krew/bin"
+    '/usr/local/opt/mysql-client/bin'
 
 for p in $path_pre[-1..1]
     # Erase if existing in PATH
