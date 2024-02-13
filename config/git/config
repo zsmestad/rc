@@ -1,0 +1,51 @@
+# vim: ft=gitconfig
+[init]
+defaultBranch = main
+
+[core]
+excludesfile = ~/.config/git/ignore
+pager = less -RFX
+
+[diff]
+tool = vim -d
+
+[diff "sopsdiffer"]
+textconv = sops -d
+
+[merge]
+tool = vim -d
+
+[pager]
+diff   = diffr | less -RFX
+log    = diffr | less -RFX
+reflog = diffr | less -RFX
+show   = diffr | less -RFX
+
+[delta]
+navigate = true
+
+[interactive]
+diffFilter = diffr | less -RFX
+
+[push]
+default = simple
+
+[alias]
+br = branch
+ci = commit
+co = checkout
+st = status
+sw = switch
+
+changed = diff --name-only
+staged  = diff --staged
+unstage = reset HEAD --
+
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
+[branch]
+sort = -committerdate
+
+[include]
+path = config.local
+
