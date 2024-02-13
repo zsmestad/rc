@@ -106,7 +106,7 @@ if status is-interactive
     end
 
     # Open Abbrs
-    if command -q Open
+    if command -q open
       abbr --add o  'open'
       abbr --add o. 'open .'
     else if command -q xdg-open
