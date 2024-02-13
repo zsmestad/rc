@@ -12,8 +12,7 @@ set -l path_pre \
     '/usr/local/bin' \
     '/usr/local/sbin' \
     '/usr/local/opt/mysql-client/bin' \
-    "$HOME/.krew/bin" \
-    "$HOME/.fzf/bin"
+    "$HOME/.krew/bin"
 
 for p in $path_pre[-1..1]
     # Erase if existing in PATH
@@ -36,16 +35,10 @@ if status is-interactive
     set -x LESS '--ignore-case -RFX'
 
     # Init
+    command -q direnv; and direnv hook fish | source
+    command -q mise; and mise activate fish | source
     command -q starship; and starship init fish | source
     command -q zoxide; and zoxide init fish | source
-    command -q direnv; and direnv hook fish | source
-
-    if command -q mise
-      mise activate fish | source
-    else if test -f ~/.asdf/asdf.fish
-      source ~/.asdf/asdf.fish
-      source ~/.asdf/completions/asdf.fish
-    end
 
     # Completions - dump into completions dir if not existing
     set -l completions \
