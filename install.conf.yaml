@@ -6,11 +6,11 @@
 - clean: ['~']
 
 - link:
-    ~/.agignore:
-    ~/.asdfrc:
     ~/.config/alacritty: config/alacritty
     ~/.config/beets/config.yaml: config/beets/config.yaml
     ~/.config/fish: config/fish
+    ~/.config/git/config: config/git/config
+    ~/.config/git/ignore: config/git/ignore
     ~/.config/mpv/config: config/mpv/config
     ~/.config/nvim: config/nvim
     ~/.config/pip: config/pip
@@ -18,8 +18,6 @@
     ~/.config/ripgrep: config/ripgrep
     ~/.config/starship.toml: config/starship.toml
     ~/.config/youtube-dl/config: config/youtube-dl/config
-    ~/.config/git/config: config/git/config
-    ~/.config/git/ignore: config/git/ignore
     ~/.default-gems:
     ~/.default-golang-pkgs:
     ~/.default-python-packages:
@@ -27,9 +25,7 @@
     ~/.haskeline:
     ~/.inputrc:
     ~/.irbrc:
-    ~/.puppet-lint.rc:
     ~/.rubocop.yml:
-    ~/.screenrc:
     ~/.tmux.conf:
     ~/.xmonad/xmonad.hs: xmonad/xmonad.hs
     ~/.zsh:
