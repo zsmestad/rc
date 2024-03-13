@@ -3,7 +3,7 @@
       relink: true
       create: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.config/alacritty: config/alacritty
