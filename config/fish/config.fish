@@ -8,6 +8,7 @@ set -l path_pre \
     "$HOME/.cargo/bin" \
     "$HOME/bin" \
     "$HOME/.local/bin" \
+    "$HOME/.bun/bin" \
     '/opt/homebrew/bin' \
     '/usr/local/bin' \
     '/usr/local/sbin' \
