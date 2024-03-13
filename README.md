@@ -1,49 +1,41 @@
 # My RC Files
 
 ```bash
-git clone --recursive https://github.com/zsmestad/rc
+git clone --recursive https://github.com/zsmestad/rc .rc
+./.rc/install
 ```
 
-## Neovim
+## CLI Tools
 
-Included [Plug.vim][0] in repo, which seems to work best. I'm mainly using Neovim over Vim now, so most updates will be to `init.vim`.
+[Homebrew](https://brew.sh/)
+[Rust](https://www.rust-lang.org/tools/install)
 
-## rbenv
+### Initial Installs
 
-### Mac
+- `brew install fish tmux git neovim`
 
-```
-brew install rbenv ruby-build
-```
+Start a new shell session after each
 
-### Linux
+- `cargo install sccache`
+- `cargo install mise starship`
+- `mise install -g bun@1.0 fzf python@3.12 ruby@3.2 usage`
 
-```
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-```
+### Essentials
 
-## pyenv
+- `brew install cmake coreutils curl dylibbundler gnutls gpg2 htop jq lua-language-server meson pkg-config pkgconf restic rsync shellcheck shfmt socat tree watch`
+- `cargo install bat cargo-update diffr du-dust fd-find inlyne just pueue rink ripgrep sd treefmt watchexec-cli xh zoxide`
+- `bun install -g bash-language-server prettier yaml-language-server`
+- `pip install ruff-lsp`
 
-### Mac
+### Nice
 
-```bash
-brew install pyenv openssl readline sqlite3 xz zlib
-CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $version
-```
+- `cargo install czkawka_cli czkawka_gui gitoxide lipsum-cli`
 
-### Linux
+### Non-work
 
-```bash
-# Ubuntu
-sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+- `brew install aria2 atomicparsley calibre chromaprint ffmpeg libav mediainfo mpv musicbrainz-picard mutagen opus opus-tools mkvtoolnix`
+- `pip install yt-dlp beets[chroma,fetchart,lyrics]`
 
-git clone https://github.com/pyenv/pyenv ~/.pyenv
-pyenv install --list
-pyenv install 3.x
-pyenv global 3.x
-pip3 install beets discogs_client requests pylast pyacoustid youtube-dl
-```
+### May actually use some day
 
-[0]: https://github.com/junegunn/vim-plug
+- `cargo install hurl jless rustic-rs zellij`
