@@ -1,0 +1,18 @@
+# One CLI to format the code tree - https://github.com/numtide/treefmt
+
+[formatter.doc]
+command = "bun"
+options = ["run", "prettier", "--write"]
+includes = [
+ "*.css",
+ "*.html",
+ "*.js",
+ "*.json",
+ "*.jsx",
+ "*.md",
+ "*.mdx",
+ "*.scss",
+ "*.ts",
+ "*.yaml",
+]
+excludes = ["lazy-lock.json"]
