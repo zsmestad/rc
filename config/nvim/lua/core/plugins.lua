@@ -33,6 +33,8 @@ require("lazy").setup({
   'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',
 
+--  'github/copilot.vim',
+
   -- Comments, Surround, others
   { 'echasnovski/mini.nvim', version = false },
 
@@ -54,5 +56,5 @@ require("lazy").setup({
 
   -- Git
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'TimUntersberger/neogit', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'TimUntersberger/neogit', tag = 'v0.0.1', dependencies = { 'nvim-lua/plenary.nvim' } },
 })
