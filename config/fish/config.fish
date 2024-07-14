@@ -56,6 +56,7 @@ if status is-interactive
       set -l cmd (string split ' ' $cmp_cmd)[1]
       set -l cmp_file "$__fish_config_dir/completions/$cmd.fish"
       if not test -f "$cmp_file"; and command -q $cmd
+        echo "Generate completions for $cmd"
         eval $cmp_cmd > "$cmp_file"
       end
     end
@@ -69,7 +70,7 @@ if status is-interactive
         set -x APPLE_SSH_ADD_BEHAVIOR 'macos'
         abbr --add disks 'df -h'
       case Linux
-        abbr --add disks "df -Th |  grep -vE '^(/dev/loop|tmpfs|udev)'"
+        abbr --add disks "df -Th | grep -vE '^(/dev/loop|tmpfs|udev)'"
     end
 
     # Abbrs
@@ -122,4 +123,3 @@ if status is-interactive
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
     test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local_functions
 end
-
