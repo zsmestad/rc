@@ -21,6 +21,7 @@
     ~/.default-gems:
     ~/.default-golang-pkgs:
     ~/.default-python-packages:
+    ~/.editrc:
     ~/.gitconfig:
     ~/.haskeline:
     ~/.inputrc:
