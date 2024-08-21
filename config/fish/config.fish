@@ -116,8 +116,12 @@ if status is-interactive
       abbr --add o. 'xdg-open .'
     end
 
-    # Misc
-    command -q pueue; and abbr --add p pueue
+    # Pueue
+    if command -q pueue
+      abbr --add p pueue
+      abbr --add pd 'pueued -d'
+      abbr --add pw 'watch -c pueue --color always'
+    end
 
     # Local config (in `.gitignore`)
     test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local_config.fish
