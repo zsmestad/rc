@@ -83,6 +83,9 @@ if status is-interactive
 
     abbr --add ta 'tmux -u attach'
 
+    # Use with env var name at end
+    abbr --add secret 'read -sxP "Secret: "'
+
     # Git Abbrs
     abbr --add g   git
     abbr --add gds git diff --staged
