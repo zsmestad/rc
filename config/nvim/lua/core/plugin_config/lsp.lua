@@ -35,7 +35,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- yamlls:        brew install yaml-language-server
 local servers = {
   'bashls',
-  'ruff_lsp',
+  'ruff',
   'rust_analyzer',
   'solargraph',
   'yamlls',
