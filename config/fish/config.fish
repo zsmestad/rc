@@ -80,6 +80,7 @@ if status is-interactive
     abbr --add cl clear
     abbr --add l  ls -lF
     abbr --add lh ls -lFh
+    abbr --add l@ ls -lF@
 
     abbr --add ta 'tmux -u attach'
 
