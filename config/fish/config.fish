@@ -59,6 +59,8 @@ if status is-interactive
             abbr --add disks "df -Th | grep -vE '^(/dev/loop|tmpfs|udev)'"
     end
 
+    command -q lsd; and alias ls lsd
+
     # Abbrs
     abbr --add .. cd ..
     abbr --add ... cd ../..
