@@ -122,6 +122,6 @@ if status is-interactive
     end
 
     # Local config (in `.gitignore`)
-    test -f ~/.config/fish/local_config.fish; and source ~/.config/fish/local/config.fish
-    test -d ~/.config/fish/local_functions; and set -a fish_function_path ~/.config/fish/local/functions
+    test -f ~/.config/fish/local/config.fish; and source ~/.config/fish/local/config.fish
+    test -d ~/.config/fish/local/functions; and set -a fish_function_path ~/.config/fish/local/functions
 end
