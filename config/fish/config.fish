@@ -67,13 +67,13 @@ if status is-interactive
         alias ls 'ls --color=auto'
         abbr --add l@ 'ls -lF@'
     end
-    abbr --add l ls -lF
-    abbr --add lh ls -lFh
+    abbr --add l 'ls -lF'
+    abbr --add lh 'ls -lFh'
 
     # Abbrs
-    abbr --add .. cd ..
-    abbr --add ... cd ../..
-    abbr --add .... cd ../../..
+    abbr --add .. 'cd ..'
+    abbr --add ... 'cd ../..'
+    abbr --add .... 'cd ../../..'
     abbr --add cl clear
 
     abbr --add ta 'tmux -u attach'
@@ -83,9 +83,9 @@ if status is-interactive
 
     # Git Abbrs
     abbr --add g git
-    abbr --add gds git diff --staged
-    abbr --add gpp git pull --prune
-    abbr --add gpu git push --set-upstream origin '(git branch --show-current)'
+    abbr --add gds 'git diff --staged'
+    abbr --add gpp 'git pull --prune'
+    abbr --add gpu 'git push --set-upstream origin (git branch --show-current)'
 
     # cargo install sd gitoxide
     abbr --add repos 'ein tool find | sd "^\./" ""'
