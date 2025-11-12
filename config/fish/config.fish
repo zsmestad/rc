@@ -59,16 +59,22 @@ if status is-interactive
             abbr --add disks "df -Th | grep -vE '^(/dev/loop|tmpfs|udev)'"
     end
 
-    command -q lsd; and alias ls lsd
+    # ls fun
+    if command -q lsd
+        alias ls lsd
+        abbr --add l@ 'command ls --color=auto -lF@'
+    else
+        alias ls 'ls --color=auto'
+        abbr --add l@ 'ls -lF@'
+    end
+    abbr --add l ls -lF
+    abbr --add lh ls -lFh
 
     # Abbrs
     abbr --add .. cd ..
     abbr --add ... cd ../..
     abbr --add .... cd ../../..
     abbr --add cl clear
-    abbr --add l ls -lF
-    abbr --add lh ls -lFh
-    abbr --add l@ ls -lF@
 
     abbr --add ta 'tmux -u attach'
 
