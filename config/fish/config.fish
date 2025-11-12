@@ -36,6 +36,7 @@ if status is-interactive
         'just --completions fish' \
         'limactl completion fish' \
         'mise completion fish' \
+        'pueue completions fish' \
         'rg --generate complete-fish'
 
     for cmp_cmd in $completions
@@ -114,9 +115,10 @@ if status is-interactive
         abbr --add o. 'xdg-open .'
     end
 
-    # Pueue
+    # Pueue Abbrs
     if command -q pueue
         abbr --add p pueue
+        abbr --add pc 'pueue clean -s'
         abbr --add pd 'pueued -d'
         abbr --add pw 'watch -c pueue --color always'
     end
