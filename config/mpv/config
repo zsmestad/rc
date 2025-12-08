@@ -1,7 +1,79 @@
-fs=yes
-native-fs=yes
+input-ipc-server = ~/tmp/mpvsocket
 
-sub-auto=fuzzy
+# Source: https://gist.github.com/JySzE/34ee131da3974811a9469e1e3b7d4d34
+
+# MacOS Version 1.2
+# 08/14/2025
+# Requires MPV v0.38.0 or newer
+
+###############################################################################################################################################
+
+# Player GUI Options
+
+###############################################################################################################################################
+
+# Adjust as needed.
+
+input-ar-delay = 500
+input-ar-rate = 20
+keep-open = yes
+keep-open-pause = no
+osd-duration = 1500
+osd-playing-msg = ${filename}
+script-opts = osc-timems=yes
+autofit-larger = 100%x95%
+osd-bar-align-x = 0
+osd-bar-align-y = 0
+osd-font-size = 25
+osd-align-x = left
+osd-align-y = top
+
+###############################################################################################################################################
+
+# Video Output Options
+
+###############################################################################################################################################
+
+fs = yes
+native-fs = yes
+
+# Specifically made for macos.
+
+vo = gpu-next
+gpu-context = macvk
+gpu-api = auto
+hwdec = videotoolbox-copy
+#If you change videotoolbox-copy to videotoolbox, you MUST change pixelformat to hw-pixelformat in the DV WEBDL profile.
+target-colorspace-hint = no
+
+###############################################################################################################################################
+
+# Scaling and Etc Options
+
+###############################################################################################################################################
+
+scale = ewa_lanczossharp
+scale-antiring = 0.4
+cscale = ewa_lanczossharp
+dscale = ewa_robidoux # Polar Catmull-Rom (0.0, 0.5)
+dscale-param1 = 0.0
+dscale-param2 = 0.5
+dscale-antiring = 0.5
+correct-downscaling = yes
+sigmoid-upscaling = yes
+
+dither-depth = 8 # Set to your displays bitdepth.
+dither = fruit # Change to "ordered" if 10 or 12 bit display.
+
+deband = no
+
+###############################################################################################################################################
+
+# Screenshot Options
+
+###############################################################################################################################################
+
+# Adjust all as needed.
 
 screenshot-format=jpg
 screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
@@ -9,7 +81,124 @@ screenshot-template=~/.config/mpv/img/%F_%wH-%wM-%wS.%wT
 # Template for Kodi thumbnails
 #screenshot-template=~/.config/mpv/img/Adventure Time/%F-thumb
 
-input-ipc-server=~/tmp/mpvsocket
+# screenshot-format = png
+# screenshot-sw = no
+# screenshot-high-bit-depth = no
+# screenshot-tag-colorspace = yes
+# screenshot-png-compression = 4
+# screenshot-directory = ~~desktop/
+# screenshot-template = '%f_H%wH_M%wM_S%wS_MS.%wT_F%{estimated-frame-number}'
 
-[pseudo-gui]
-force-window=no
+###############################################################################################################################################
+
+# Subtitle Options
+
+###############################################################################################################################################
+
+# Adjust all as needed.
+
+sub-auto = fuzzy
+sub-font = "Gandhi Sans"
+sub-font-size = 52
+sub-color = 0.95/0.95/0.95/1
+sub-blur = 0.2
+sub-bold = yes
+sub-border-size = 3
+sub-border-color = 0.05/0.05/0.05/1
+sub-spacing = 1.5
+sub-shadow-offset = 1
+sub-shadow-color = 0/0/0/0.25
+sub-use-margins = no
+sub-margin-y = 50
+sub-margin-x = 100
+sub-scale-with-window = no
+sub-ass-override = no
+demuxer-mkv-subtitle-preroll = yes
+sub-fix-timing = no
+
+###############################################################################################################################################
+
+# Auto Profiles.
+
+###############################################################################################################################################
+
+# Analog Profile RARE
+
+[Analog bt.470m]
+profile-desc = "Analog bt.470m"
+profile-cond = p["video-params/primaries"]=="bt.470m" 
+target-prim = bt.470m
+gamut-mapping-mode = auto
+libplacebo-opts = gamut_expansion=no
+profile-restore=copy
+
+#---------------------------------------------------------------------------------------------------------------------------------------------#
+
+# SD Profiles
+
+[SD NTSC]
+profile-desc = "SD NTSC"
+profile-cond = p["video-params/primaries"]=="bt.601-525" 
+target-prim = bt.601-525
+gamut-mapping-mode = auto
+libplacebo-opts = gamut_expansion=no
+profile-restore=copy
+
+[SD PAL]
+profile-desc = "SD PAL"
+profile-cond = p["video-params/primaries"]=="bt.601-625" 
+target-prim = bt.601-625
+gamut-mapping-mode = auto
+libplacebo-opts = gamut_expansion=no
+profile-restore=copy
+
+#---------------------------------------------------------------------------------------------------------------------------------------------#
+
+# SDR UHD & HD Profiles
+
+[SDR UHD & HD BT.709]
+profile-desc = "SDR UHD & HD BT.709"
+profile-cond = p["video-params/primaries"]=="bt.709" 
+target-prim = bt.709
+gamut-mapping-mode = auto
+libplacebo-opts = gamut_expansion=no
+profile-restore=copy
+
+[SDR UHD BT.2020]
+profile-desc = "SDR UHD BT.2020"
+profile-cond = p["video-params/gamma"]~="pq" and p["video-params/primaries"]=="bt.2020" and p["video-params/gamma"]=="bt.1886"
+target-prim = bt.709
+target-trc = bt.1886
+gamut-mapping-mode = absolute
+libplacebo-opts = gamut_expansion=no
+profile-restore=copy
+
+#---------------------------------------------------------------------------------------------------------------------------------------------#
+
+# DV & HDR Profiles
+
+[HDR WEBDL & Blu-ray / DV Blu-ray]
+profile-desc = "HDR WEBDL & Blu-ray / DV Blu-ray"
+profile-cond = p["video-params/gamma"]=="pq" and p["video-params/primaries"]=="bt.2020" and p["video-params/colorlevels"]~="full"
+tone-mapping = spline # Adjust as needed.
+target-prim = bt.709
+target-trc = bt.1886
+hdr-compute-peak = yes
+gamut-mapping-mode = perceptual # Adjust as needed.
+target-peak = 120 # Adjust as needed.
+screenshot-tag-colorspace = no
+profile-restore=copy
+
+[DV WEBDL]
+profile-desc = "DV WEBDL"
+profile-cond = p["video-params/pixelformat"]=="p010" and p["video-params/colorlevels"]=="full" and p["video-params/colormatrix"]=="dolbyvision" 
+tone-mapping = bt.2446a # Adjust as needed.
+target-prim = bt.709
+target-trc = bt.1886
+hdr-compute-peak = yes
+gamut-mapping-mode = perceptual # Adjust as needed.
+target-peak = 120 # Adjust as needed.
+screenshot-tag-colorspace = no
+profile-restore=copy
+
+###############################################################################################################################################
