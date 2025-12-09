@@ -26,8 +26,9 @@ if status is-interactive
     set -x LESS '--ignore-case -RFX'
 
     # Init
-    command -q direnv; and direnv hook fish | source
     command -q mise; and mise activate fish | source
+
+    command -q direnv; and direnv hook fish | source
     command -q starship; and starship init fish | source
     command -q zoxide; and zoxide init fish | source
 
