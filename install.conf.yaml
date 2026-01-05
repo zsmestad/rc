@@ -17,7 +17,7 @@
     ~/.config/pylintrc: config/pylintrc
     ~/.config/ripgrep: config/ripgrep
     ~/.config/starship.toml: config/starship.toml
-    ~/.config/youtube-dl/config: config/youtube-dl/config
+    ~/.config/yt-dlp/config: config/yt-dlp/config
     ~/.default-gems:
     ~/.default-golang-pkgs:
     ~/.default-python-packages:
