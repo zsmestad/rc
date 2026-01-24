@@ -4,4 +4,7 @@
 -- Add any additional options here
 
 local opt = vim.opt
+
+-- Turn off mouse and system clipboard defaults
 opt.mouse = ""
+opt.clipboard = ""
