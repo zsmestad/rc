@@ -20,7 +20,7 @@ keep-open = yes
 keep-open-pause = no
 osd-duration = 1500
 osd-playing-msg = ${filename}
-script-opts = osc-timems=yes
+script-opts = osc-timems=no
 autofit-larger = 100%x95%
 osd-bar-align-x = 0
 osd-bar-align-y = 0
