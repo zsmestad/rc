@@ -15,6 +15,7 @@ for p in $path_pre[-1..1]
 end
 
 if status is-interactive
+    fish_config theme choose default-rgb --color-theme=dark
     set -g fish_key_bindings fish_vi_key_bindings
     set -g fish_features qmark-noglob
 
