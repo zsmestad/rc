@@ -12,6 +12,13 @@ import:
 
 art_filename: cover
 
+musicbrainz:
+    host: musicbrainz.org
+    ratelimit: 1
+    ratelimit_interval: 1.0
+    searchlimit: 15
+    extra_tags: []
+
 match:
   preferred:
     countries: ["US", "GB|UK", "NO"]
@@ -29,9 +36,11 @@ paths:
   singleton: $format/Nonsense/$artist - $title
 
 per_disc_numbering: yes
-ignore: .AppleDouble ._* *~ .DS_Store
 
-plugins: chroma inline info fetchart lyrics scrub
+clutter: ["Thumbs.DB", ".DS_Store"]
+ignore: [".*", "*~", "System Volume Information", "lost+found"]
+
+plugins: musicbrainz inline chroma info
 
 scrub:
   auto: no
@@ -39,11 +48,4 @@ scrub:
 fetchart:
   auto: yes
   cautious: true
-  cover_names: cover front back
-
-lyrics:
-  auto: no
-  fallback: null
-  sources: genius musixmatch lyricwiki
-  google_API_key: null
-  google_engine_ID: null
+  cover_names: cover artwork front back
