@@ -1,4 +1,4 @@
---download-archive ~/.config/youtube-dl/archive
+--download-archive ~/.config/yt-dlp/archive
 --add-metadata
 --no-playlist
 --external-downloader aria2c
